@@ -1,0 +1,23 @@
+ ja:
+    enums:
+      order:
+        payment_method:
+          credit_card: "クレジットカード"
+          transfer: "銀行振込"
+        order_status:
+          not_payment: "入金待ち"
+          confirm_payment: "入金確認"
+          now_cooking: "制作中"
+          now_packing: "発送準備中"
+          complete_send: "発送済み"
+      product:
+        sale_status:
+          sale: "販売中"
+          sold_out: "売切れ"
+      order_detail:
+        make_status:
+          disable_cooking: "着手不可"
+          before_cooking: "制作待ち"
+          now_cooking: "制作中"
+          complete_cooking: "制作完了"
+
