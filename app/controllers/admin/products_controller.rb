@@ -1,17 +1,17 @@
 class Admin::ProductsController < ApplicationController
+  before_action :set_genres_and_sale_statuses, only: [:new, :edit]
   before_action :set_product, only: [:show, :edit, :update]
 
   def new
     @product = Product.new
-    @genres = Genre.all
   end
 
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to admin_products_path(@product), notice: "You have created product successfully."
+      redirect_to admin_product_path(@product), notice: "You have created product successfully."
     else
-      @products = Product.all
+      @products = Product.page(params[:page]).per(10)
       render 'index'
     end
   end
@@ -24,7 +24,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def edit
-    @genres = Genre.all
   end
 
   def update
@@ -42,6 +41,12 @@ class Admin::ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:genre_id, :name, :introduction, :price, :image, :sale_status)
+  end
+
+  def set_genres_and_sale_statuses
+    @genres = Genre.all
+    #enumの項目を保管 viewでeachするため
+    @sale_statuses = Product.sale_statuses_i18n
   end
 
   def set_product

@@ -1,0 +1,52 @@
+<%= form_with model:[:admin, product], local:true do |f| %>
+
+  <div class="form-group">
+    <span class="product_label"><%= f.label :image, "商品画像" %></span>
+    <span class="product_field"><%= f.attachment_field :image, class: "form-control-file" %></span>
+  </div>
+
+  <div class="form-group">
+    <span class="product_label"><%= f.label :name, "商品名" %></span>
+    <span class="product_field"><%= f.text_field :name, placeholder: "商品名", class: 'form-control' %></span>
+  </div>
+  <div class="form-group">
+    <span class="product_label"><%= f.label :introduction, "商品説明" %></span>
+    <span class="product_field"><%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: 'form-control' %></span>
+  </div>
+  <div class="form-group">
+    <span class="product_label"><%= f.label :genre_id, "ジャンル" %></span>
+    <span class="product_field"><%= f.collection_select :genre_id, genres, :id, :name, :prompt => "-- 選択してください --" %></span>
+  </div>
+  <div class="form-group">
+    <span class="product_label"><%= f.label :price, "税抜価格" %></span>
+    <span class="product_field"><%= f.text_field :price, placeholder: 1000, class: 'form-control' %>円</span>
+  </div>
+  <div class="form-group">
+    <span class="product_label"><%= f.label :sale_status, "販売ステータス" %></span>
+    <span class="product_field">
+      <% sale_statuses.each do |sale_status| %>
+        <!-- sale_status[0]が"sale"とか"sold_out"で、sale_status[1]が"販売中"とか"売切れ"-->
+        <%= f.radio_button :sale_status, sale_status[0] %><%= sale_status[1] %>
+      <% end %>
+    </span>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "変更を保存", class: 'btn btn-success' %>
+  </div>
+
+<% end %>
+
+<!--確認用　後で消します -->
+<style>
+.product_label {
+    display: inline-block;
+    width: 200px;
+    /* border: solid 1px; */
+}
+.product_field {
+    display: inline-block;
+    width: 300px;
+    /* border: solid 1px; */
+}
+</style>

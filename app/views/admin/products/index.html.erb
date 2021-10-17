@@ -1,14 +1,11 @@
-<h1>Admin::Products#index</h1>
-<p>Find me in app/views/admin/products/index.html.erb</p>
-
-<h2>商品一覧<h2>
+<h2>商品一覧</h2>
 <p><%= link_to "+", new_admin_product_path %><p>
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>
       <th>商品ID</th>
       <th>商品名</th>
-      <th>税込価格</th>
+      <th>税抜価格</th>
       <th>ジャンル</th>
       <th>ステータス</th>
     </tr>
@@ -18,9 +15,9 @@
       <tr>
         <td><%= product.id %></td>
         <td><%= link_to product.name, admin_product_path(product) %></td>
-        <td><%= product.price %></td>
-        <td><%= product.genre_id %></td>
-        <td><%= product.sale_status %></td>
+        <td><%= product.price.to_s(:delimited, delimiter: ',') %></td>
+        <td><%= product.genre.name %></td>
+        <td><%= product.sale_status_i18n %></td>
       </tr>
     <% end %>
     <%= paginate @products %>
