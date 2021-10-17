@@ -6,7 +6,7 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_path(@product), notice: "You have created product successfully."
+      redirect_to admin_products_path(@product), notice: "You have created product successfully."
     else
       @products = Product.all
       render 'index'
@@ -14,7 +14,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    @products = Product.page(params[:page]).per(10)
   end
 
   def show
@@ -28,7 +28,7 @@ class Admin::ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     if product.update(product_params)
-      redirect_to product_path(product), notice: "You have updated product successfully."
+      redirect_to admin_product_path(product), notice: "You have updated product successfully."
     else
       render "edit"
     end
