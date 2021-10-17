@@ -1,69 +1,69 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-10  mx-auto mt-4">
-      <h4>新規会員登録</h4>
+<div class="container mt-4">
 
-      <%= form_with model: @customer, url: customer_registration_path, local: true do |f|%>
-        <%= render "customer/shared/error_messages", resource: resource %>
+  <h4>新規会員登録</h4>
 
-        <div class="field">
-          <%= f.label :"名前" %>
-          <%= f.label :"(性)" %>
-          <%= f.text_field :last_name, autofocus: true, placeholder: "令和" %>
-          <%= f.label :"(名)" %>
-          <%= f.text_field :first_name, placeholder: "道子" %>
-        </div>
+  <form>
+    <%= form_with model: @customer, url: customer_registration_path, local: true do |f|%>
+      <%= render "customer/shared/error_messages", resource: resource %>
 
-        <div class="field">
-          <%= f.label :"フリガナ" %>
-          <%= f.label :"(セイ)" %>
-          <%= f.text_field :kana_last_name, placeholder: "レイワ" %>
-          <%= f.label :"(メイ)" %>
-          <%= f.text_field :kana_first_name, placeholder: "ミチコ" %>
-        </div>
+      <div class="field">
+        <%= f.label :"名前" %>
+        <%= f.label :"(性)" %>
+        <%= f.text_field :last_name, autofocus: true, placeholder: "令和" %>
+        <%= f.label :"(名)" %>
+        <%= f.text_field :first_name, placeholder: "道子" %>
+      </div>
 
-        <div class="field">
-          <%= f.label :"メールアドレス" %>
-          <%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com" %>
-        </div>
+      <div class="field">
+        <%= f.label :"フリガナ" %>
+        <%= f.label :"(セイ)" %>
+        <%= f.text_field :kana_last_name, placeholder: "レイワ" %>
+        <%= f.label :"(メイ)" %>
+        <%= f.text_field :kana_first_name, placeholder: "ミチコ" %>
+      </div>
 
-        <div class="field">
-          <%= f.label :"郵便番号(ハイフンなし)" %>
-          <%= f.text_field :postal_code, placeholder: "0000000" %>
-        </div>
+      <div class="field">
+        <%= f.label :"メールアドレス" %>
+        <%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com" %>
+      </div>
 
-        <div class="field">
-          <%= f.label :"住所" %>
-          <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0" %>
-        </div>
+      <div class="field">
+        <%= f.label :"郵便番号(ハイフンなし)" %>
+        <%= f.text_field :postal_code, placeholder: "0000000" %>
+      </div>
 
-          <div class="field">
-          <%= f.label :"電話番号(ハイフンなし)" %>
-          <%= f.text_field :phone_number, placeholder: "0000000000" %>
-        </div>
-
+      <div class="field">
+        <%= f.label :"住所" %>
+        <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0" %>
+      </div>
 
         <div class="field">
-          <%= f.label :"パスワード(６文字以上)" %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %>
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
+        <%= f.label :"電話番号(ハイフンなし)" %>
+        <%= f.text_field :phone_number, placeholder: "0000000000" %>
+      </div>
 
-        <div class="field">
-          <%= f.label :"パスワード(確認用)" %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
 
-        <div class="actions">
-          <%= f.submit "新規登録", class:"btn btn-success" %>
-        </div>
-      <% end %>
+      <div class="field">
+        <%= f.label :"パスワード(６文字以上)" %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
 
-      <h4>既に登録済みの方</h4>
-      <%= render "customer/shared/links" %>
-    </div>
-  </div>
+      <div class="field">
+        <%= f.label :"パスワード(確認用)" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "新規登録", class:"btn btn-success" %>
+      </div>
+    <% end %>
+  </form>
+
+  <h4>既に登録済みの方</h4>
+  <%= render "customer/shared/links" %>
+
 </div>
 
