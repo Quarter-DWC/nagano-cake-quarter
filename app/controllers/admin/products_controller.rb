@@ -24,6 +24,7 @@ class Admin::ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
@@ -41,7 +42,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:genre_id, :name, :introduction, :price, :image_id, :sale_status)
+    params.require(:product).permit(:genre_id, :name, :introduction, :price, :image, :sale_status)
   end
 
 end

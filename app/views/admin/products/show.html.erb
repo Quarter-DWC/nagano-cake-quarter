@@ -1,2 +1,45 @@
 <h1>Admin::Products#show</h1>
 <p>Find me in app/views/admin/products/show.html.erb</p>
+
+<!--確認用　後で消します -->
+<style>
+.product_label {
+    display: inline-block;
+    width: 200px;
+    /* border: solid 1px; */
+}
+.product_field {
+    display: inline-block;
+    width: 100px;
+    /* border: solid 1px; */
+}
+</style>
+
+<h2>商品詳細</h2>
+
+<div class="">
+  <span class="product_field"><%= attachment_image_tag(@product, :image, :fill, 100, 100, fallback: "no_image.jpg") %></span>
+</div>
+
+<div class="">
+  <span class="product_label">商品名</span>
+  <span class="product_field"><%= @product.name %></span>
+</div>
+<div class="">
+  <span class="product_label">商品説明</span>
+  <span class="product_field"><%= @product.introduction %></span>
+</div>
+<div class="">
+  <span class="product_label">ジャンル</span>
+  <span class="product_field"><%= @product.genre_id %></span>
+</div>
+<div class="">
+  <span class="product_label">税込価格</span>
+  <span class="product_field"><%= @product.price %>円</span>
+</div>
+<div class="">
+  <span class="product_label">販売ステータス</span>
+  <span class="product_field"><%= @product.sale_status %></span>
+</div>
+
+<%= link_to "編集する", edit_admin_product_path, class:"btn btn-success" %>
