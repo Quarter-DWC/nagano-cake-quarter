@@ -1,6 +1,8 @@
 class Admin::ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :edit, :update]
+
   def new
-    @product = Product.new()
+    @product = Product.new
     @genres = Genre.all
   end
 
@@ -19,18 +21,15 @@ class Admin::ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def edit
-    @product = Product.find(params[:id])
     @genres = Genre.all
   end
 
   def update
-    product = Product.find(params[:id])
-    if product.update(product_params)
-      redirect_to admin_product_path(product), notice: "You have updated product successfully."
+    if @product.update(product_params)
+      redirect_to admin_product_path(@product), notice: "You have updated product successfully."
     else
       render "edit"
     end
@@ -43,6 +42,10 @@ class Admin::ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:genre_id, :name, :introduction, :price, :image, :sale_status)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
 end
