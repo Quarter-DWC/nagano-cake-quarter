@@ -1,2 +1,41 @@
 <h1>Admin::Products#new</h1>
 <p>Find me in app/views/admin/products/new.html.erb</p>
+
+<h2>商品新規登録</h2>
+
+<%= form_with model:[:admin, @product], local:true do |f| %>
+
+  <div class="form-group">
+    <%= f.label :image, "商品画像" %>
+    <%= f.attachment_field :image, class: "form-control-file" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name, "商品名" %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :introduction, "商品説明" %>
+    <%= f.text_area :introduction, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    ジャンル
+    <%= f.collection_select(:genre_id, @genres, :id, :name ) %>
+  </div>
+  <div class="form-group">
+    税込価格
+    <%= f.text_field :price, class: 'form-control' %>円
+  </div>
+
+  <div class="form-group">
+    販売ステータス
+    <%= f.radio_button :sale_status, 0 %>販売中
+    <%= f.radio_button :sale_status, 1 %>売切れ
+  </div>
+
+
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-success' %>
+  </div>
+<% end %>
