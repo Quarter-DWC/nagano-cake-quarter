@@ -1,0 +1,9 @@
+<div class="container">
+  <h3>配送先登録/一覧</h3>
+  <div class="new_delivery_form">
+    <%= render 'form', delivery: @delivery %>
+  </div>
+  <div class="delivery_list">
+    <%= render 'delivery_index', deliveries: @deliveries %>
+  </div>
+</div>
