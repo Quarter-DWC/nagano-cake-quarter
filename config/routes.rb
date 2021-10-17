@@ -25,31 +25,34 @@ Rails.application.routes.draw do
     sessions:      'customer/sessions'
   }
 
-  root to: 'homes#top'
-  get '/about' => 'homes#about'
-  resources :products, only: [:index, :show] do
-    collection do
-      get 'search'
-    end
-  end
-  resources :cart_products, only: [:index, :create, :update, :destroy] do
-    collection do
-      delete 'destroy_all'
-    end
-  end
-  resources :orders, only: [:new, :create, :index, :show] do
-    collection do
-      post 'confirm'
-      get 'thanks'
-    end
-  end
-  resource :customers, only: [:edit, :update] do
-    collection do
-      get 'mypage' => 'customers#show'
-      get 'unsubscribe'
-      patch 'withdraw'
-    end
-  end
-  resources :deliveries, except: [:new, :show]
 
+  scope module: :customer do
+    root to: 'homes#top'
+    get '/about' => 'homes#about'
+
+    resources :products, only: [:index, :show] do
+      collection do
+        get 'search'
+      end
+    end
+    resources :cart_products, only: [:index, :create, :update, :destroy] do
+      collection do
+        delete 'destroy_all'
+      end
+    end
+    resources :orders, only: [:new, :create, :index, :show] do
+      collection do
+        post 'confirm'
+        get 'thanks'
+      end
+    end
+    resource :customers, only: [:edit, :update] do
+      collection do
+        get 'mypage' => 'customers#show'
+        get 'unsubscribe'
+        patch 'withdraw'
+      end
+    end
+    resources :deliveries, except: [:new, :show]
+  end
 end
