@@ -1,0 +1,41 @@
+<h3>商品詳細</h3>
+
+<div class="">
+  <span class="product_field"><%= attachment_image_tag(@product, :image, :fill, 100, 100, fallback: "no_image.jpg") %></span>
+</div>
+<div class="">
+  <span class="product_label">商品名</span>
+  <span class="product_field"><%= @product.name %></span>
+</div>
+<div class="">
+  <span class="product_label">商品説明</span>
+  <span class="product_field"><%= @product.introduction %></span>
+</div>
+<div class="">
+  <span class="product_label">ジャンル</span>
+  <span class="product_field"><%= @product.genre.name %></span>
+</div>
+<div class="">
+  <span class="product_label">税込価格（税抜価格）</span>
+  <span class="product_field"><%= tax_included_price(@product.price).to_s(:delimited) %> (<%= @product.price.to_s(:delimited) %>)円</span>
+</div>
+<div class="">
+  <span class="product_label">販売ステータス</span>
+  <span class="product_field"><%= @product.sale_status_i18n %></span>
+</div>
+
+<%= link_to "編集する", edit_admin_product_path, class:"btn btn-success" %>
+
+<!--確認用　後で消します -->
+<style>
+.product_label {
+    display: inline-block;
+    width: 200px;
+    /* border: solid 1px; */
+}
+.product_field {
+    display: inline-block;
+    width: 200px;
+    /* border: solid 1px; */
+}
+</style>
