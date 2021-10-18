@@ -1,5 +1,5 @@
 class Customer::HomesController < ApplicationController
-  before_action :authenticate_user!, except: [:top, :about]
+  before_action :authenticate_customer!, except: [:top, :about]
   def top
     @products = Product.order(created_at: :desc).limit(5)
     @genres = Genre.includes(:products)
