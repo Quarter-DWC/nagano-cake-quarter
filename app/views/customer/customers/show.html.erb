@@ -10,27 +10,27 @@
     <tbody>
       <tr>
         <td class="table-active">氏名</td>
-        <td><%= "#{@current_user.last_name} #{@current_user.first_name}" %></td>
+        <td><%= "#{current_customer.last_name} #{current_customer.first_name}" %></td>
       </tr>
       <tr>
         <td class="table-active">カナ</td>
-        <td><%= "#{@current_user.kana_last_name} #{@current_user.kana_first_name}" %></td>
+        <td><%= "#{current_customer.kana_last_name} #{current_customer.kana_first_name}" %></td>
       </tr>
       <tr>
         <td class="table-active">郵便番号</td>
-        <td><%= @current_user.postal_code %></td>
+        <td><%= current_customer.postal_code %></td>
       </tr>
       <tr>
         <td class="table-active">住所</td>
-        <td><%= @current_user.address %></td>
+        <td><%= current_customer.address %></td>
       </tr>
       <tr>
         <td class="table-active">電話番号</td>
-        <td><%= @current_user.phone_number %></td>
+        <td><%= current_customer.phone_number %></td>
       </tr>
       <tr>
         <td class="table-active">メールアドレス</td>
-        <td><%= @current_user.email %></td>
+        <td><%= current_customer.email %></td>
       </tr>
     </tbody>
   </table>
