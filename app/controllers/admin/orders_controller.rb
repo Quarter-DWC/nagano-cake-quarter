@@ -14,7 +14,12 @@ class Admin::OrdersController < ApplicationController
          order_details.each { |order_detail|
          order_detail.update(make_status:1)
          }
+      # elsif order.order_status == "not_payment"
+      #       order_details.each { |order_detail|
+      #       order_detail.update(make_status:0)
+      #   }
       end
+
       redirect_to admin_order_path(order)
     else
       redirect_to request.referer
