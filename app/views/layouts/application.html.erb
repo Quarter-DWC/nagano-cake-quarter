@@ -11,19 +11,6 @@
 
   <body>
 
-    <% if admin_signed_in? %>
-      <%= render "layouts/admin/header" %>
-      <%= render "layouts/main" %>
-      <%= render "layouts/admin/footer" %>
-    <% elsif customer_signed_in? %>
-      <%= render "layouts/customer/header" %>
-      <%= render "layouts/main" %>
-      <%= render "layouts/customer/footer" %>
-    <% else %>
-      <%= render "layouts/header" %>
-      <%= render "layouts/main" %>
-      <%= render "layouts/footer" %>
-    <% end %>
 
   </body>
 </html>
