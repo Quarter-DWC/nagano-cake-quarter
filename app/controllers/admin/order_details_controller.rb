@@ -3,8 +3,9 @@ class Admin::OrderDetailsController < ApplicationController
 
   def update
     @order_detail = OrderDetail.find(params[:id])
-    @order_detail.update(order_detail_params)
     @order = @order_detail.order
+    @order_detail.update(order_detail_params)
+
 
     # order_status　2→制作中　3→発送準備中
 
