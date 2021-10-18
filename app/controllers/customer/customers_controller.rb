@@ -19,7 +19,13 @@ class Customer::CustomersController < ApplicationController
   end
 
   def withdraw
-    
+    if current_customer.update(is_valid: false)
+      redirect_to destroy_customer_session_path, notice: "退会しました。"
+    else
+      # ここは必要？必要ならunsubscribeにflash追加。
+      flash.naw[:alert] = "退会できませんでした"
+      render :unsubscribe
+    end
   end
 
   private
