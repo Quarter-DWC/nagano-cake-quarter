@@ -1,0 +1,15 @@
+<ul class="new_product_list">
+  <% products.each do |product| %>
+    <li class="product_item">
+      <%= link_to product_path(product.id), class:"product_item__link"  do %>
+        <div class="product_item__image">
+          <%= attachment_image_tag(product, :image, :fill, 300, 300, fallback: "assets/cake-dummy.jpg") %>
+        </div>
+        <div class="product_item__caption">
+          <p class="product_name"><%= product.name %></p>
+          <p class="product_price">&yen<%= product.price %></p>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

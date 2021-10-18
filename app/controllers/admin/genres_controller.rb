@@ -1,5 +1,5 @@
 class Admin::GenresController < ApplicationController
-  before_action :set_genre, only: [:edit, :update]
+  before_action :set_genre!, only: [:edit, :update]
 
   def index
     @genre = Genre.new
@@ -33,7 +33,7 @@ class Admin::GenresController < ApplicationController
     params.require(:genre).permit(:name)
   end
 
-  def set_genre
+  def set_genre!
     @genre = Genre.find(params[:id])
   end
 end
