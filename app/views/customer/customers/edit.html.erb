@@ -1,11 +1,6 @@
-<div class="container mt-3">
-  <h3 class="heading"><strong>会員情報編集</strong></h3>
-  <div class="editor_wrapper text-center">
+<h3>会員情報編集</h3>
+<div class="form text-center">
 
-    <% render "customer/customers/form", customer: @current_user %>
+  <% render "customer/customers/form", customer: @current_user %>
 
-    <div class="edit_btn">
-      <%= link_to "退会する", withdraw_customers_path, class:"btn btn-danger" %>
-    </div>
-  </div>
 </div>
