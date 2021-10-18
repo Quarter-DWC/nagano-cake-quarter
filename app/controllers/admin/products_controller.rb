@@ -1,6 +1,6 @@
 class Admin::ProductsController < ApplicationController
-  before_action :set_genres_and_sale_statuses, only: [:new, :edit]
-  before_action :set_product, only: [:show, :edit, :update]
+  before_action :set_genres_and_sale_statuses!, only: [:new, :edit]
+  before_action :set_product!, only: [:show, :edit, :update]
 
   def new
     @product = Product.new
@@ -43,13 +43,13 @@ class Admin::ProductsController < ApplicationController
     params.require(:product).permit(:genre_id, :name, :introduction, :price, :image, :sale_status)
   end
 
-  def set_genres_and_sale_statuses
+  def set_genres_and_sale_statuses!
     @genres = Genre.all
     #enumの項目を保管 viewでeachするため
     @sale_statuses = Product.sale_statuses_i18n
   end
 
-  def set_product
+  def set_product!
     @product = Product.find(params[:id])
   end
 
