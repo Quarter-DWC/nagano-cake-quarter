@@ -1,26 +1,22 @@
-<div class="container mt-4">
-  <h4>ログイン</h4>
+<h3>ログイン</h3>
 
-  <p>会員の方はこちらからログイン</p>
-  <%= flash[:alert]%>
-  <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
-    <div class="form-group row mx-4">
-      <%= f.label :メールアドレス, class:"col-md-2" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class:"col-md-5" %>
-    </div>
+<h4>会員の方はこちらからログイン</h4>
+<%= flash[:alert]%>
+<%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
+  </div>
 
-    <div class="form-group row mx-4">
-      <%= f.label :パスワード, class:"col-md-2" %>
-      <%= f.password_field :password, autocomplete: "current-password", class:"col-md-5" %>
-    </div>
+  <div class="form-group">
+    <%= f.label :password, "パスワード" %>
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
 
-    <div class="form-group row mx-4">
-      <%= f.submit "ログイン", class:"btn btn-primary offset-2 col-md-2" %>
-    </div>
-  <% end %>
+  <div class="form-group">
+    <%= f.submit "ログイン", class:"btn btn-primary" %>
+  </div>
+<% end %>
 
-  <p class="mt-4 ml-3">会員登録がお済みでない方</p>
-  <p class="offset-1"><%= render "customer/shared/links" %>から新規登録を行ってください</p>
-
-
-</div>
+<h4>会員登録がお済みでない方</h4>
+<p><%= render "customer/shared/links" %>から新規登録を行ってください</p>
