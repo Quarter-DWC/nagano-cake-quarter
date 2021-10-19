@@ -11,10 +11,10 @@ class Admin::OrderDetailsController < ApplicationController
 
       case @order_detail.make_status
         when "now_cooking"
-          @order.update(order_status: "now_cooking")
+          @order.update_attributes(order_status: "now_cooking")
         when "complete_cooking"
           if @order.order_details.all?{ |order_detail| order_detail.make_status == "complete_cooking" }
-             @order.update(order_status: "now_packing")
+             @order.update_attributes(order_status: "now_packing")
           end
       end
 
