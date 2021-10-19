@@ -18,4 +18,10 @@ class Order < ApplicationRecord
   validates :postal_code, presence: true, length: { is: 7 }, numericality: {only_integer: true}
   validates :address, presence: true
   validates :address_name, presence: true
+
+  # 商品合計（送料別）
+  def uninclude_fee_price
+    (total_price - fee).to_s(:delimited)
+  end
+
 end
