@@ -1,1 +1,60 @@
-共通ヘッダーです。
+<style>
+  .header {
+    height: 120px;
+    padding: 30px 30px;
+    background-color: #EE9473;
+  }
+  .header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header__inner a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .header__inner ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  .header__inner li {
+    list-style: none;
+    margin-right: 20px;
+  }
+  .login_customer {
+    margin: 0;
+  }
+  .search_form {
+    display: flex;
+    justify-content: flex-end
+  }
+
+
+</style>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="/", class="site_link">
+      <h1 class="site_title">ながのCAKE</h1>
+    </a>
+    <nav class="header__nav">
+      <ul class="header__ul">
+        <li class="header__li">
+          <%= link_to "About", about_path, class: "btn btn-secondary" %>
+        </li>
+        <li class="header__li">
+          <%= link_to "商品一覧", products_path, class: "btn btn-secondary" %>
+        </li>
+        <li class="header__li">
+          <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-secondary" %>
+        </li>
+        <li class="header__li">
+          <%= link_to "ログイン", new_customer_session_path, class: "btn btn-secondary" %>
+        </li>
+      </ul>
+      <%= render 'layouts/search_form' %>
+    </nav>
+  </div>
+</header>
