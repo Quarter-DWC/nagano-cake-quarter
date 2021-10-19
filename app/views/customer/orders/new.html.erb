@@ -1,0 +1,57 @@
+<h3>注文情報入力</h3>
+
+<%= form_with url: confirm_orders_path, local: true do |f| %>
+
+  <!--モデルにenumがないため下記で記載。あとで要変更-->
+  <h4>支払い方法</h4>
+  <div class="form-group">
+    <%= f.label :payments_method, "credit_card" %>
+    <%= f.radio_button :payments_method, :credit_card, checked: true %><br />
+    <%= f.label :payments_method, "transfer" %>
+    <%= f.radio_button :payments_method, :transfer %>
+  </div>
+
+  <div class="deliveries-group">
+
+    <h4>お届け先</h4>
+    <div class="form-group">
+      <%= f.label :address, "ご自身の住所", value: 0 %>
+      <%= f.radio_button :address, "0", checked: true %><br />
+      <p>
+        〒<%= current_customer.postal_code %> <%= current_customer.address %><br />
+        <%= current_customer.full_name %>
+      </p>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :address, "ご登録済みの住所から選択", value: 1 %>
+      <%= f.radio_button :address, "1" %><br />
+    </div>
+
+    <div class="form-group">
+      <%= f.collection_select :address_name,
+      current_customer.deliveries.all,
+      :id,
+      :address,
+      prompt: "住所を選択してください" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :address, :新しいお届け先, value: 2 %>
+      <%= f.radio_button :address, "2" %><br />
+      <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
+      <%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: "0000000" %><br />
+      <%= f.label :address, "住所" %>
+      <%= f.text_field :address, autocomplete: "street-address", placeholder: "東京都渋谷区代々木神園町0-0" %><br />
+      <%= f.label :address_name, "宛名" %>
+      <%= f.text_field :address_name, autocomplete: "name", placeholder: "令和道子" %><br />
+    </div>
+
+    <div class="action">
+      <%= f.submit "確認画面に進む", class:"btn btn-primary" %>
+    </div>
+
+  </div>
+
+
+<% end %>
