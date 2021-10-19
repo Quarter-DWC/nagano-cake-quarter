@@ -1,5 +1,7 @@
 <h3>新規会員登録</h3>
 
+<%= alert %>
+
 <%= form_with model: @customer, url: customer_registration_path, local: true do |f|%>
   <%= render "customer/shared/error_messages", resource: resource %>
 
