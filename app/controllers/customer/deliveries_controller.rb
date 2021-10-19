@@ -1,4 +1,5 @@
 class Customer::DeliveriesController < ApplicationController
+  before_action :authenticate_customer!
   before_action :setup_delivery!, except:[:index, :create]
 
   def index
