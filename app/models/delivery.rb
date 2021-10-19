@@ -3,5 +3,9 @@ class Delivery < ApplicationRecord
 
   validates :postal_code, presence: true, length: { is: 7 }, numericality: {only_integer: true}
   validates :address, presence: true
-  validates :address_name, presence: true
+  validates :address_name, presence:
+
+  def full_address
+    "〒" + postal_code + " " + address + " " + address_name
+  end
 end
