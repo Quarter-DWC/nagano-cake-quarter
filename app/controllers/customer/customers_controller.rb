@@ -20,8 +20,7 @@ class Customer::CustomersController < ApplicationController
 
   def withdraw
     current_customer.update_attribute(:is_valid, false)
-    reset_session
-    redirect_to root_path, notice: "退会しました。"
+    redirect_to destroy_customer_session_path, method: :delete, notice: "退会しました。"
   end
 
   private
