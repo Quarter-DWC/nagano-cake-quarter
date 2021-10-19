@@ -12,14 +12,6 @@ admin = Admin.new(
 
 admin.save!
 
-Product.create!(
-  genre_id: 1,
-  name: "ショートケーキ",
-  introduction: "美味しいケーキです",
-  price: 280,
-  image_id: "1",
-  sale_status: 0)
-
 Genre.create!(
   [
     {
@@ -35,6 +27,15 @@ Genre.create!(
       name: "プリン"
     }
   ])
+
+Product.create!(
+  genre_id: 1,
+  name: "ショートケーキ",
+  introduction: "美味しいケーキです",
+  price: 280,
+  image_id: "1",
+  sale_status: "sale"
+  )
 
 customer = Customer.new(
   last_name: "山田",
@@ -53,26 +54,26 @@ customer.save!
 
 Order.create!(
   customer_id: 1,
-  payment_method: 0,
+  payment_method: "credit_card",
   fee: 800,
   total_price: 1080,
   postal_code: "0000000",
   address: "東京都",
   address_name: "山田太郎",
-  order_status: "0"
+  order_status: "not_payment"
   )
 
 OrderDetail.create!(
   order_id: 1,
   product_id: 1,
   quantity: 1,
-  make_status: 0,
+  make_status: "disable_cooking"
   )
 
 CartProduct.create!(
   customer_id: 1,
   product_id: 1,
-  quantity: 1,
+  quantity: 1
   )
 
 Delivery.create!(
