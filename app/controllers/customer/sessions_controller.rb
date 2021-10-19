@@ -24,7 +24,7 @@ class Customer::SessionsController < Devise::SessionsController
 
     # 退会ステータスを確認
     def customer_state
-      @customer = Customer.find_by(email: parms[:customer][:email])
+      @customer = Customer.find_by(email: params[:customer][:email])
       return if !@customer
         if (@customer.valid_password?(params[:customer][:password])) && (@customer.is_valid == false)
           flash[:alert] = "このアカウントは退会済みです。新規登録をお願いいたします"
