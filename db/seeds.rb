@@ -33,7 +33,7 @@ Product.create!(
   name: "ショートケーキ",
   introduction: "美味しいケーキです",
   price: 280,
-  image_id: "1",
+  image_id: "",
   sale_status: "sale"
   )
 
