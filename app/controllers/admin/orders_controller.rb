@@ -1,5 +1,5 @@
 class Admin::OrdersController < ApplicationController
-  before_action :authenticate_admin!
+  # before_action :authenticate_admin!
 
   def show
     @order = Order.find(params[:id])
@@ -12,7 +12,7 @@ class Admin::OrdersController < ApplicationController
     if order.update(order_params)
       if order.order_status == "confirm_payment"
          order_details.each { |order_detail|
-         order_detail.update(make_status: "before_cooking")
+         order_detail.update_attributes(make_status: "before_cooking")
          }
       end
 

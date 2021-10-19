@@ -4,12 +4,13 @@
     <title>NaganoCakeQuarter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
     <% if admin_signed_in? %>
       <%= render "layouts/admin/header" %>
       <%= render "layouts/main" %>
@@ -23,7 +24,6 @@
       <%= render "layouts/main" %>
       <%= render "layouts/footer" %>
     <% end %>
-
-
+    
   </body>
 </html>
