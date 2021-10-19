@@ -38,33 +38,17 @@ Product.create!(
   )
 
 customer = Customer.new(
-  [
-    {
-      last_name: "山田",
-      first_name: "太郎",
-      kana_last_name: "ヤマダ",
-      kana_first_name: "タロウ",
-      email: "yamada@test.com",
-      phone_number: "00000000000",
-      postal_code: "0000000",
-      address: "東京都",
-      password: "test123",
-      is_valid: true
-    },
-    {
-      last_name: "佐藤",
-      first_name: "三郎",
-      kana_last_name: "サトウ",
-      kana_first_name: "サブロウ",
-      email: "sato@test.com",
-      phone_number: "00000000001",
-      postal_code: "0000001",
-      address: "東京都",
-      password: "test124",
-      is_valid: true
-    }
-  ]
-)
+  last_name: "山田",
+  first_name: "太郎",
+  kana_last_name: "ヤマダ",
+  kana_first_name: "タロウ",
+  email: "yamada@test.com",
+  phone_number: "00000000000",
+  postal_code: "0000000",
+  address: "東京都",
+  password: "test123",
+  is_valid: true
+  )
 
 customer.save!
 
