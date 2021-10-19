@@ -22,15 +22,15 @@ class Customer::SessionsController < Devise::SessionsController
 
   protected
 
-    # 退会ステータスを確認
-    def customer_state
-      @customer = Customer.find_by(email: params[:customer][:email])
-      return if !@customer
-        if (@customer.valid_password?(params[:customer][:password])) && (@customer.is_valid == false)
-          flash[:alert] = "このアカウントは退会済みです。新規登録をお願いいたします"
-          redirect_to new_customer_registration_path
-        end
+  # 退会ステータスを確認
+  def customer_state
+    @customer = Customer.find_by(email: params[:customer][:email])
+    return if !@customer
+    if (@customer.valid_password?(params[:customer][:password])) && (@customer.is_valid == false)
+      flash[:alert] = "このアカウントは退会済みです。新規登録をお願いいたします"
+      redirect_to new_customer_registration_path
     end
+  end
 
 
   # If you have extra params to permit, append them to the sanitizer.

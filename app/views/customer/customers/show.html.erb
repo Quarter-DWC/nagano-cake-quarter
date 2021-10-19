@@ -10,11 +10,11 @@
     <tbody>
       <tr>
         <td class="table-active">氏名</td>
-        <td><%= "#{current_customer.last_name} #{current_customer.first_name}" %></td>
+        <td><%= current_customer.full_name %></td>
       </tr>
       <tr>
         <td class="table-active">カナ</td>
-        <td><%= "#{current_customer.kana_last_name} #{current_customer.kana_first_name}" %></td>
+        <td><%= current_customer.kana_full_name %></td>
       </tr>
       <tr>
         <td class="table-active">郵便番号</td>
@@ -38,10 +38,10 @@
 
 <div class="link_box">
   <h4>配送先</h4>
-  <p><%= link_to "一覧を見る", deliveries_path, class:"btn btn-success" %></p>
+  <p><%= link_to "一覧を見る", deliveries_path, class:"btn btn-primary" %></p>
 </div>
 
 <div class="link_box">
   <h4>注文履歴</h4>
-  <p><%= link_to "一覧を見る", orders_path, class:"btn btn-success" %></p>
+  <p><%= link_to "一覧を見る", orders_path, class:"btn btn-primary" %></p>
 </div>

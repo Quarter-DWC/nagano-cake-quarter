@@ -17,4 +17,14 @@ class Customer < ApplicationRecord
   validates :address, presence: true
   validates :password, presence: true
   validates :is_valid, presence: true
+
+  # フルネーム表示
+  def full_name
+    last_name + " " + first_name
+  end
+
+  def kana_full_name
+    kana_last_name + " " + kana_first_name
+  end
+
 end
