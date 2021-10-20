@@ -1,27 +1,35 @@
-<table class="product_table table table-bordered">
-  <thead>
-    <tr class="table-active">
-      <th>商品名</th>
-      <th>単価(税込)</th>
-      <th>数量</th>
-      <th>小計</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% carts.each do |cart| %>
-      <tr>
-        <td>
-          <%= attachment_image_tag(cart.product, :image, :fill, 100, 100, fallback: "cake-dummy.jpg", size:'100x100' ) %>
-          <%= cart.product.name %>
-        </td>
-        <td><%= cart.product.tax_included_price %></td>
-        <td>
-          <%= render 'quantity_change', cart: cart %>
-        </td>
-        <td><%= cart.subtotal_price.to_s(:delimited) %></td>
-        <td><%= render 'delete_form', cart: cart %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="cart_product_wrapper">
+  <% unless carts.blank? %>
+    <%= link_to "カートを空にする", destroy_all_cart_products_path, method: :delete, remote: true, class: "btn btn-danger" %>
+    <table class="product_table table table-bordered">
+      <thead>
+        <tr class="table-active">
+          <th colspan="2">商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% carts.each do |cart| %>
+          <tr>
+            <td colspan="2">
+              <%= attachment_image_tag(cart.product, :image, :fill, 100, 100, fallback: "cake-dummy.jpg", size:'100x100' ) %>
+              <%= cart.product.name %>
+            </td>
+            <td><%= cart.product.tax_included_price %></td>
+            <td>
+              <%= render 'quantity_change', cart: cart %>
+            </td>
+            <td><%= cart.subtotal_price.to_s(:delimited) %></td>
+            <td><%= render 'delete_form', cart: cart %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= render 'total_price' , total_price: @total_price %>
+  <% else %>
+    <p>現在、お客様のカートに商品はありません。</p>
+  <% end %>
+</div>

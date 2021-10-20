@@ -22,7 +22,7 @@ class Customer::CartProductsController < ApplicationController
 
   def update
     if @cart.update(cart_product_params)
-      redirect_to cart_products_path
+      @total_price = @carts.total_price
     else
       render 'index', notice: "カート内商品の数量変更に失敗しました。"
     end
@@ -30,12 +30,12 @@ class Customer::CartProductsController < ApplicationController
 
   def destroy
     @cart.destroy
-    redirect_to cart_products_path
+    @total_price = @carts.total_price
   end
 
   def destroy_all
     @carts.destroy_all
-    redirect_to cart_products_path
+    @total_price = @carts.total_price
   end
 
   private
