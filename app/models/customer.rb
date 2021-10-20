@@ -14,8 +14,8 @@ class Customer < ApplicationRecord
   validates :phone_number, presence: true, length: { minimum: 10 }, numericality: {only_integer: true}
   validates :postal_code, presence: true, length: { is: 7 }, numericality: {only_integer: true}
   validates :address, presence: true
-  validates :is_valid, presence: true
-
+  validates :is_valid, inclusion: [true, false]
+  
   # フルネーム表示
   def full_name
     last_name + " " + first_name
