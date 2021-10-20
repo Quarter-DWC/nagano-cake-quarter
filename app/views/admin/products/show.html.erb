@@ -17,7 +17,7 @@
 </div>
 <div class="">
   <span class="product_label">税込価格（税抜価格）</span>
-  <span class="product_field"><%= tax_included_price(@product.price).to_s(:delimited) %> (<%= @product.price.to_s(:delimited) %>)円</span>
+  <span class="product_field"><%= @product.tax_included_price.to_s(:delimited) %> (<%= @product.price.to_s(:delimited) %>)円</span>
 </div>
 <div class="">
   <span class="product_label">販売ステータス</span>
