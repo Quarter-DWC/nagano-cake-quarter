@@ -15,7 +15,7 @@
           <%= attachment_image_tag(cart.product, :image, :fill, 100, 100, fallback: "cake-dummy.jpg", size:'100x100' ) %>
           <%= cart.product.name %>
         </td>
-        <td><%= cart.product.price %></td>
+        <td><%= cart.product.tax_included_price %></td>
         <td>
           <%= render 'quantity_change', cart: cart %>
         </td>

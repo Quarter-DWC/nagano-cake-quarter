@@ -6,12 +6,17 @@ class CartProduct < ApplicationRecord
 
   # 商品ごとの小計
   def subtotal_price
-    product.price * quantity
+    product.tax_included_price * quantity
   end
 
   # 商品全体の合計金額
   def self.total_price
-    self.pluck(:quantity, :price).sum{ |q, p| q * p }
+    result = 0
+    carts = self.all
+    carts.each do |cart|
+      result += cart.subtotal_price
+    end
+    return result
   end
 
 end
