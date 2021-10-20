@@ -33,15 +33,28 @@ class Customer::OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(order_params)
-    order.customer_id = current_customer.id
-    if order.save!
-      
+    @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
+
+    # order_ditailも同時に保存
+    @cart_products = current_customer.cart_products
+    if @order.save!
+      @cart_products.each do |cart|
+        @order_detail = OrderDetail.new
+        @order_detail.order_id = @order.id
+        @order_detail.product_id = cart.product_id
+        @order_detail.quantity = cart.quantity
+        # make_statusはデフォルトなので除外
+        unless @order_detail.save
+          redirect_to new_order_path, alert: "商品の購入に失敗しました。"
+        end
+      end
+      @cart_products.destroy_all
       redirect_to thanks_order_path
     else
       redirect_to new_order_path, alert: "商品の購入に失敗しました。"
     end
-    
+
   end
 
   def index
