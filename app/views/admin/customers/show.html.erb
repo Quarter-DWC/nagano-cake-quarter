@@ -1,4 +1,4 @@
-<h3><%= @customer.last_name + @customer.first_name %>さんの会員詳細</h3>
+<h3><%= @customer.full_name %>さんの会員詳細</h3>
 <div class="row">
   <div class="col-md-3 offset-md-1">
     <div class="">会員ID</div>
@@ -12,8 +12,8 @@
   </div>
   <div class="col-md-8">
     <div class=""><%= @customer.id %></div>
-    <div class=""><%= @customer.last_name %><%= @customer.first_name %></div>
-    <div class=""><%= @customer.kana_last_name %><%= @customer.kana_first_name %></div>
+    <div class=""><%= @customer.full_name %></div>
+    <div class=""><%= @customer.kana_full_name %></div>
     <div class=""><%= @customer.postal_code %></div>
     <div class=""><%= @customer.address %></div>
     <div class=""><%= @customer.phone_number %></div>

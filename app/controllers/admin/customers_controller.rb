@@ -1,6 +1,6 @@
 class Admin::CustomersController < ApplicationController
   # before_action :authenticate_admin!
-  before_action :setup_customer, except: [:index]
+  before_action :setup_customer!, except: [:index]
 
   def index
     @customers = Customer.page(params[:page]).per(10).order(id: "ASC")
@@ -13,7 +13,7 @@ class Admin::CustomersController < ApplicationController
   end
 
   def update
-    if @customer.update!(customer_params)
+    if @customer.update(customer_params)
       redirect_to admin_customer_path(@customer)
     else
       render "edit"
@@ -24,7 +24,6 @@ class Admin::CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(
-      :id,
       :last_name,
       :first_name,
       :kana_last_name,
@@ -37,7 +36,7 @@ class Admin::CustomersController < ApplicationController
       )
   end
 
-  def setup_customer
+  def setup_customer!
     @customer = Customer.find(params[:id])
   end
 
