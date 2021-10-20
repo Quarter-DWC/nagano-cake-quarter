@@ -35,6 +35,13 @@ class Customer::OrdersController < ApplicationController
   def create
     order = Order.new(order_params)
     order.customer_id = current_customer.id
+    if order.save!
+      
+      redirect_to thanks_order_path
+    else
+      redirect_to new_order_path, alert: "商品の購入に失敗しました。"
+    end
+    
   end
 
   def index
