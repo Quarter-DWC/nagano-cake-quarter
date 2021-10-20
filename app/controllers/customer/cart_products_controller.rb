@@ -4,6 +4,7 @@ class Customer::CartProductsController < ApplicationController
   before_action :setup_cart_products!
 
   def index
+    @total_price = @carts.total_price
   end
 
   def create
@@ -15,7 +16,7 @@ class Customer::CartProductsController < ApplicationController
     if @cart.save
       redirect_to cart_products_path
     else
-      redirect_to products_path
+      redirect_to products_path, notice: "カート内に入りませんでした。"
     end
   end
 
@@ -23,7 +24,7 @@ class Customer::CartProductsController < ApplicationController
     if @cart.update(cart_product_params)
       redirect_to cart_products_path
     else
-      render 'index'
+      render 'index', notice: "カート内商品の数量変更に失敗しました。"
     end
   end
 

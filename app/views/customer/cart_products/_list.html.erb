@@ -19,7 +19,7 @@
         <td>
           <%= render 'quantity_change', cart: cart %>
         </td>
-        <td><%= subtotal_price(cart).to_s(:delimited) %></td>
+        <td><%= cart.subtotal_price.to_s(:delimited) %></td>
         <td><%= render 'delete_form', cart: cart %></td>
       </tr>
     <% end %>
