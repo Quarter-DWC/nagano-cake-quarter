@@ -11,7 +11,7 @@
   <tbody class="col-12">
     <% @orders.each do |order| %>
       <tr>
-        <td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M:%S"), admin_order_path(order), class: "text-dark", style: "border-bottom: solid 1px #212529;text-decoration: none;" %></td>
+        <td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M:%S"), admin_order_path(order), class: "text-dark", style: "border-bottom: solid 1px #212529; text-decoration: none;" %></td>
         <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
         <td><%= order.order_details.count %></td>
         <td><%= order.order_status_i18n %></td>
