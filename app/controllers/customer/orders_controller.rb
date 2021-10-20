@@ -1,7 +1,6 @@
 class Customer::OrdersController < ApplicationController
   before_action :authenticate_customer!
 
-
   def new
     @order = Order.new
     @deliveries = current_customer.deliveries
@@ -36,7 +35,7 @@ class Customer::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
 
-    # order_ditailも同時に保存
+    # order_ditailも同時に保存し、カート内商品は全削除
     @cart_products = current_customer.cart_products
     if @order.save!
       @cart_products.each do |cart|
@@ -44,22 +43,18 @@ class Customer::OrdersController < ApplicationController
         @order_detail.order_id = @order.id
         @order_detail.product_id = cart.product_id
         @order_detail.quantity = cart.quantity
-        # make_statusはデフォルトなので除外
-        unless @order_detail.save
-          redirect_to new_order_path, alert: "商品の購入に失敗しました。"
-        end
+        @order_detail.save
       end
       @cart_products.destroy_all
-      redirect_to thanks_order_path
+      redirect_to thanks_orders_path
     else
-      redirect_to new_order_path, alert: "商品の購入に失敗しました。"
+      redirect_to new_order_path, alert: "商品を購入できませんでした。"
     end
 
   end
 
   def index
-    # ページネーションは入れるべき？
-    @orders = current_customer.orders.all
+    @orders = current_customer.orders.page(params[:page]).per(5).reverse_order
   end
 
   def show
@@ -72,7 +67,6 @@ class Customer::OrdersController < ApplicationController
 
   private
 
-  # feeとorder_statusはデフォルトがあるので除外
   def order_params
     params.require(:order).permit(
       :payment_method,
