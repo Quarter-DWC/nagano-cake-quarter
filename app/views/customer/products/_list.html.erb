@@ -8,7 +8,7 @@
           </div>
           <div class="product_item__caption">
             <p class="product_name"><%= product.name %></p>
-            <p class="product_price">&yen<%= tax_included_price(product.price).to_s(:delimited) %></p>
+            <p class="product_price">&yen<%= product.tax_included_price.to_s(:delimited) %></p>
           </div>
         <% end %>
       </li>

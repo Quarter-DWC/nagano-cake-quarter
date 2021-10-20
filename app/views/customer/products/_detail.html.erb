@@ -6,7 +6,7 @@
     <p class="product_name"><%= product.name %></p>
     <p class="product_intro"><%= product.introduction %></p>
     <p class="product_price">
-      &yen<%= tax_included_price(product.price).to_s(:delimited) %>
+      &yen<%= product.tax_included_price.to_s(:delimited) %>
       <small>(税込)</small>
     </p>
   </div>
