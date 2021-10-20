@@ -16,3 +16,7 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+@import "customer/breakpoints/base";
+@import "customer/header";
+@import "customer/footer";

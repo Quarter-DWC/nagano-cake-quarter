@@ -1,0 +1,28 @@
+body {
+  font-size: 1rem;
+  position: relative;
+  min-height: 100vh;
+  letter-spacing: 0.125em;
+  line-height: 1.5;
+}
+
+img,svg {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover {
+  opacity: .7;
+  transition: .3s;
+}
+
+.container {
+  width: 100%;
+  padding-top: 120px;
+  padding-bottom: 130px;
+}
