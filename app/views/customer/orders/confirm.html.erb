@@ -16,9 +16,9 @@
             <%= attachment_image_tag cart.product, :image, :fill, 100, 100, fallback: "no_image.jpg" %>
             <%= cart.product.name %>
           </td>
-          <td><%= tax_included_price(cart.product.price).to_s(:delimited) %></td>
+          <td><%= cart.product.tax_included_price.to_s(:delimited) %></td>
           <td><%= cart.quantity %></td>
-          <td><%= (tax_included_price(cart.product.price) * cart.quantity).to_s(:delimited) %></td>
+          <td><%= (cart.product.tax_included_price * cart.quantity).to_s(:delimited) %></td>
         </tr>
       <% end %>
     </tbody>
@@ -32,11 +32,11 @@
       </tr>
       <tr>
         <td>商品合計</td>
-        <td><% @subtotal %></td>
+        <td><%  %></td>
       </tr>
       <tr>
         <td>請求金額</td>
-        <td><%= @order.fee + @subtotal %></td>
+        <td><%= @order.fee %></td>
       </tr>
     </tbody>
   </table>
@@ -53,7 +53,7 @@
 <div class="hidden_group">
   <%= form_with model:@order, url: orders_path, local:true do |f| %>
     <%= f.hidden_field :payment_method %>
-    <%= f.hidden_field :total_price, __ %>
+    <%= f.hidden_field :total_price %>
     <%= f.hidden_field :postal_code %>
     <%= f.hidden_field :address %>
     <%= f.hidden_field :address_name %>

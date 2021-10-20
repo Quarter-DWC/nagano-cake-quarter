@@ -38,13 +38,13 @@
     <div class="form-group">
       <%= f.radio_button :to_address, 2 %>
       <%= f.label :to_address, :新しいお届け先, value: 2 %><br />
-      
+
       <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
       <%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: "0000000" %><br />
-      
+
       <%= f.label :address, "住所" %>
       <%= f.text_field :address, autocomplete: "street-address", placeholder: "東京都渋谷区代々木神園町0-0" %><br />
-      
+
       <%= f.label :address_name, "宛名" %>
       <%= f.text_field :address_name, autocomplete: "name", placeholder: "令和道子" %><br />
     </div>
