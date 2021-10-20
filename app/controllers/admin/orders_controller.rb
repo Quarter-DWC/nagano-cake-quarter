@@ -1,5 +1,5 @@
 class Admin::OrdersController < ApplicationController
-  # before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def show
     @order = Order.find(params[:id])
@@ -20,9 +20,6 @@ class Admin::OrdersController < ApplicationController
     else
       redirect_to request.referer
     end
-
-
-
   end
 
   private
