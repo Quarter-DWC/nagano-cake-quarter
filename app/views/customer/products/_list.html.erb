@@ -1,0 +1,20 @@
+<% unless products.blank? %>
+  <ul class="product_list">
+    <% products.each do |product| %>
+      <li class="product_item">
+        <%= link_to product_path(product.id) do %>
+          <div class="product_item__image">
+            <%= attachment_image_tag(product, :image, :fill, 300, 300, fallback: "cake-dummy.jpg", size:'300x300') %>
+          </div>
+          <div class="product_item__caption">
+            <p class="product_name"><%= product.name %></p>
+            <p class="product_price">&yen<%= product.tax_included_price.to_s(:delimited) %></p>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate products %>
+<% else %>
+  <p>商品が見つかりませんでした。</p>
+<% end %>
