@@ -1,5 +1,5 @@
 class Admin::CustomersController < ApplicationController
-  # before_action :authenticate_admin!
+  before_action :authenticate_admin!
   before_action :setup_customer!, except: [:index]
 
   def index
