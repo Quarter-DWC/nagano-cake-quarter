@@ -21,7 +21,11 @@ class Order < ApplicationRecord
 
   # 商品合計（送料別）
   def uninclude_fee_price
-    (total_price - fee).to_s(:delimited)
+    total_price - fee
+  end
+
+  def full_address
+    "〒" + postal_code + " " + address
   end
 
 end
