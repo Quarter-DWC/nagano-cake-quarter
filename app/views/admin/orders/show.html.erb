@@ -5,7 +5,7 @@
       <tr>
         <th>購入者</th>
         <td>
-          <%= link_to admin_customer_path(@order.customer.id), class: "text-dark" do %>
+          <%= link_to admin_customer_path(@order.customer.id) do %>
             <%= @order.customer.last_name %><%= @order.customer.first_name %>
           <% end %>
         </td>
@@ -36,7 +36,7 @@
 </div>
 <div class="row">
   <div class="col-md-8">
-    <table class="table table-inverse">
+    <table class="table table-hover table-inverse">
       <thead>
         <tr class="table-active">
           <th>商品名</th>

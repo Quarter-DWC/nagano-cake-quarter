@@ -20,9 +20,9 @@
     <div class=""><%= @customer.email %></div>
     <div class="">
       <% if @customer.is_valid == true %>
-        <p class="text-success">有効</p>
+        <p class="customer_valid">有効</p>
       <% else %>
-        <p class="text-muted">退会</p>
+        <p class="customer_invalid">退会</p>
       <% end %>
       </div>
   </div>
