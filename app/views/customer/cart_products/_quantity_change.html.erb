@@ -2,6 +2,6 @@
   <%= f.hidden_field :product_id, value: cart.product_id %>
   <div class="input-group">
     <%= f.select :quantity, options_for_select(1..10, {selected: cart.quantity} ), class: "form-control" %>
-    <%= f.submit "変更", class: "form-control btn btn-success" %>
+    <%= f.submit "変更", class: "btn btn-success" %>
   </div>
 <% end %>
