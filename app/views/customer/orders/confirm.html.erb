@@ -16,9 +16,9 @@
             <%= attachment_image_tag cart.product, :image, :fill, 100, 100, fallback: "no_image.jpg" %>
             <%= cart.product.name %>
           </td>
-          <td><%= cart.product.tax_included_price.to_s(:delimited) %></td>
+          <td>&yen<%= cart.product.tax_included_price.to_s(:delimited) %></td>
           <td><%= cart.quantity %></td>
-          <td><%= cart.subtotal_price.to_s(:delimited) %></td>
+          <td>&yen<%= cart.subtotal_price.to_s(:delimited) %></td>
         </tr>
       <% end %>
     </tbody>
@@ -28,15 +28,15 @@
     <tbody>
       <tr>
         <td>送料</td>
-        <td><%= @order.fee %></td>
+        <td>&yen<%= @order.fee %></td>
       </tr>
       <tr>
         <td>商品合計</td>
-        <td><%= @cart_products.total_price.to_s(:delimited) %></td>
+        <td>&yen<%= @cart_products.total_price.to_s(:delimited) %></td>
       </tr>
       <tr>
         <td>請求金額</td>
-        <td><%= (@order.fee + @cart_products.total_price).to_s(:delimited) %></td>
+        <td>&yen<%= (@order.fee + @cart_products.total_price).to_s(:delimited) %></td>
       </tr>
     </tbody>
   </table>
