@@ -1,3 +1,70 @@
 // Place all the styles related to the customer/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$brown: #64340B;
+$table: gray;
+
+@mixin brown-btn {
+  display: inline-block;
+  background: $brown;
+  border: 1px solid $brown;
+  box-sizing: border-box;
+  padding: 0 2% 0 2%;
+  color: #fff;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+@mixin skelton-btn {
+  display: inline-block;
+  border: 1px solid $brown;
+  box-sizing: border-box;
+  padding: 0 2% 0 2%;
+  color: $brown;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  &:hover {
+    background: $brown;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+table {
+  width: 100%;
+  th{
+    background: $table;
+  }
+  td{
+  }
+}
+
+.unsubscribe {
+  text-align: center;
+  height: 450px;
+  padding-top: 100px;
+  &__btn{
+    &_continue {
+      @include brown-btn;
+    }
+    &_bye {
+      display: inline-block;
+      border: 1px solid $brown;
+      box-sizing: border-box;
+      padding: 0 2% 0 2%;
+      color: $brown;
+      text-decoration: none;
+      transition-duration: 0.2s;
+      &:hover {
+        background: red;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}
