@@ -9,4 +9,9 @@ class OrderDetail < ApplicationRecord
   }
 
   validates :quantity, presence: true
+
+  # 商品ごとの小計
+  def subtotal_price
+    product.tax_included_price * quantity
+  end
 end
