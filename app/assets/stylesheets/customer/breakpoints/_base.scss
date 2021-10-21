@@ -1,9 +1,10 @@
 body {
   font-size: 1rem;
-  position: relative;
-  min-height: 100vh;
   letter-spacing: 0.125em;
-  line-height: 1.5;
+  line-height: 1.2;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
 }
 
 img,svg {
@@ -23,6 +24,12 @@ a:hover {
 
 .container {
   width: 100%;
-  padding-top: 120px;
-  padding-bottom: 130px;
+  height: 100%;
+  padding: 30px 0;
+  flex: 1;
+}
+
+.main_title {
+  font-weight: bold;
+  background-color: gray;
 }
