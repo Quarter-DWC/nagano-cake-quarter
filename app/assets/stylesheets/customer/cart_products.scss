@@ -1,3 +1,85 @@
 // Place all the styles related to the customer/cart_products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.cart_in_btn {
+  display: flex;
+  justify-content: center;
+}
+
+.cart_product_section {
+  width: 100%;
+  padding: 40px 0;
+}
+
+#cart_product_wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 30px 0;
+}
+
+.cart_main_area {
+  width: 77%;
+  & .destroy_all_btn {
+    width: 100%;
+    text-align: right;
+  }
+}
+
+.total_price_area {
+  width: 20%;
+  max-height: 240px;
+  margin-top: 38px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 0 8px rgba(54, 32, 32, 0.5);
+}
+
+.product_table {
+  width: 100%;
+  margin: 30px 0;
+}
+
+.product_tr {
+  height: 100px;
+  border-bottom: 1px solid #000;
+}
+
+.product_table td {
+  vertical-align: middle;
+  margin-left: 30px;
+}
+
+.product_table th {
+  border-bottom: 1px solid #000;
+}
+
+.product_img_name {
+  display: flex;
+  align-items: center;
+
+  & img {
+    width: 90px;
+    height: 70px;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+}
+
+.cell_price {
+  width: 138px;
+}
+
+.cell_quantity_change {
+  width: 138px;
+  & .btn {
+    margin-left: 8px;
+  }
+}
+
+.cell_subtotal {
+  width: 138px;
+}
