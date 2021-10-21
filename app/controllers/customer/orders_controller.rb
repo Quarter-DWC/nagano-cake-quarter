@@ -7,7 +7,6 @@ class Customer::OrdersController < ApplicationController
   end
 
   def confirm
-    @order = Order.new
     @cart_products = current_customer.cart_products
     # 住所選択のラジオボタンで条件分岐
     case params[:order][:to_address]
