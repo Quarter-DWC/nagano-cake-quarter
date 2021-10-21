@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $brown: #64340B;
-$table: gray;
+$table: #9c1e1e8f;
 
 @mixin brown-btn {
   display: inline-block;
@@ -39,11 +39,50 @@ table {
   width: 100%;
   th{
     background: $table;
+    color: #fff;
   }
   td{
   }
 }
 
+// マイページ
+.mypage {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  .link {
+    margin-bottom: 25px;
+    width: 40%;
+    margin: 0 auto;
+    position: relative;
+  	height: 40px;
+    h4{
+      display: inline-block;
+      position: absolute;
+	    left: 10px;
+    }
+    &__btn{
+      @include skelton-btn;
+      position: absolute;
+	    right: 10px;
+    }
+  }
+  .info {
+    margin-bottom: 25px;
+    th{
+      width: 30%;
+      height: 50px;
+      border-bottom: 1px solid $brown;
+    }
+    td{
+      text-align: left;
+      padding-left: 15px;
+      border-bottom: 1px solid $brown;
+    }
+  }
+}
+
+//退会確認
 .unsubscribe {
   text-align: center;
   height: 450px;
