@@ -2,7 +2,7 @@
 
 <h3>注文情報入力</h3>
 
-<%= form_with model: @order, url: confirm_orders_path, local: true do |f| %>
+<%= form_with model: @order, url: confirm_orders_path, method: :post, local: true do |f| %>
 
   <h4>支払い方法</h4>
   <div class="form-group">
@@ -16,30 +16,27 @@
 
     <h4>お届け先</h4>
     <div class="form-group">
-      <%= f.radio_button :to_address, 0, checked: true %>
-      <%= f.label :to_address, "ご自身の住所", value: 0 %><br />
+      <%= f.radio_button :to_address, "my_address", checked: true %>
+      <%= f.label :to_address, "ご自身の住所", value: "my_address" %><br />
       <p>
-        〒<%= current_customer.postal_code %> <%= current_customer.address %><br />
+        <%= current_customer.full_address %><br />
         <%= current_customer.full_name %>
       </p>
     </div>
 
     <div class="form-group">
-      <%= f.radio_button :to_address, 1 %>
-      <%= f.label :to_address, "ご登録済みの住所から選択", value: 1 %><br />
-    </div>
-
-    <div class="form-group">
+      <%= f.radio_button :to_address, "list_address" %>
+      <%= f.label :to_address, "ご登録済みの住所から選択", value: "list_address" %><br />
       <%= f.collection_select :my_deliveries,
       @deliveries,
       :id,
-      :full_address,
+      :address_add_name,
       prompt: "住所を選択してください" %>
     </div>
 
     <div class="form-group">
-      <%= f.radio_button :to_address, 2 %>
-      <%= f.label :to_address, :新しいお届け先, value: 2 %><br />
+      <%= f.radio_button :to_address, "new_address" %>
+      <%= f.label :to_address, :新しいお届け先, value: "new_address" %><br />
 
       <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
       <%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: "0000000" %><br />

@@ -5,7 +5,7 @@ class Delivery < ApplicationRecord
   validates :address, presence: true
   validates :address_name, presence: true
 
-  def full_address
+  def address_add_name
     "〒" + postal_code + " " + address + " " + address_name
   end
 end

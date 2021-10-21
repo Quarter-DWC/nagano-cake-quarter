@@ -4,45 +4,45 @@ class Customer::OrdersController < ApplicationController
   def new
     @order = Order.new
     @deliveries = current_customer.deliveries
-
   end
 
   def confirm
-    @order = Order.new(order_params)
+    @order = Order.new
     @cart_products = current_customer.cart_products
-    @order.payment_method = params[:order][:payment_method]
-
-    # 住所選択のラジオボタンで条件分岐。0==自分の住所,1==登録済み住所,2==新しい住所
+    # 住所選択のラジオボタンで条件分岐
     case params[:order][:to_address]
-      when "0" then
-        @order.postal_code = current_customer.postal_code
-        @order.address = current_customer.address
-        @order.address_name = current_customer.full_name
-      when "1" then
+      when "my_address" then
+        @order = Order.new(
+          postal_code: current_customer.postal_code,
+          address: current_customer.address,
+          address_name: current_customer.full_name)
+      when "list_address" then
         @my_delivery = current_customer.deliveries.find(params[:order][:my_deliveries])
-        @order.postal_code = @my_delivery.postal_code
-        @order.address = @my_delivery.address
-        @order.address_name = @my_delivery.address_name
-      when "2" then
-        @order.postal_code = params[:order][:postal_code]
-        @order.address = params[:order][:address]
-        @order.address_name = params[:order][:address_name]
+        @order = Order.new(
+          postal_code: @my_delivery.postal_code,
+          address: @my_delivery.address,
+          address_name: @my_delivery.address_name)
+      when "new_address" then
+        @order = Order.new(
+          postal_code: params[:order][:postal_code],
+          address: params[:order][:address],
+          address_name: params[:order][:address_name])
     end
-
+    @order.payment_method = params[:order][:payment_method]
   end
 
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
 
-    # order_ditailも同時に保存し、カート内商品は全削除
+    # order_detailも同時に保存し、カート内商品は全削除
     @cart_products = current_customer.cart_products
     if @order.save!
       @cart_products.each do |cart|
-        @order_detail = OrderDetail.new
-        @order_detail.order_id = @order.id
-        @order_detail.product_id = cart.product_id
-        @order_detail.quantity = cart.quantity
+        @order_detail = OrderDetail.new(
+        order_id: @order.id,
+        product_id: cart.product_id,
+        quantity: cart.quantity)
         @order_detail.save
       end
       @cart_products.destroy_all

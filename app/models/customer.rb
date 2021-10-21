@@ -15,7 +15,7 @@ class Customer < ApplicationRecord
   validates :postal_code, presence: true, length: { is: 7 }, numericality: {only_integer: true}
   validates :address, presence: true
   validates :is_valid, inclusion: [true, false]
-  
+
   # フルネーム表示
   def full_name
     last_name + " " + first_name
@@ -23,6 +23,11 @@ class Customer < ApplicationRecord
 
   def kana_full_name
     kana_last_name + " " + kana_first_name
+  end
+
+  #住所を一括表示
+  def full_address
+    "〒" + postal_code + address
   end
 
 end
