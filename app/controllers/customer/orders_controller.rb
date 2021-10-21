@@ -36,7 +36,7 @@ class Customer::OrdersController < ApplicationController
 
     # order_detailも同時に保存し、カート内商品は全削除
     @cart_products = current_customer.cart_products
-    if @order.save!
+    if @order.save
       @cart_products.each do |cart|
         @order_detail = OrderDetail.new(
         order_id: @order.id,
