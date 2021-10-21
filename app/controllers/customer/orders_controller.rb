@@ -7,6 +7,11 @@ class Customer::OrdersController < ApplicationController
   end
 
   def confirm
+    unless params[:order].present?
+      flash[:alert] = "不正なアクセスが疑われたため処理を中断いたしました。再度注文情報を入力してください。"
+      redirect_back(fallback_location: root_path)
+      return
+    end
     @cart_products = current_customer.cart_products
     # 住所選択のラジオボタンで条件分岐
     case params[:order][:to_address]

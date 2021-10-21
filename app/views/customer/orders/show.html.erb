@@ -35,15 +35,15 @@
       <tbody>
         <tr>
           <td>商品合計</td>
-          <td><%= @order.uninclude_fee_price %></td>
+          <td>&yen<%= @order.uninclude_fee_price.to_s(:delimited) %></td>
         </tr>
         <tr>
           <td>配送料</td>
-          <td><%= @order.fee %></td>
+          <td>&yen<%= @order.fee %></td>
         </tr>
         <tr>
           <td>ご請求金額</td>
-          <td><%= @order.total_price.to_s(:delimited) %></td>
+          <td>&yen<%= @order.total_price.to_s(:delimited) %></td>
         </tr>
       </tbody>
     </table>
@@ -64,9 +64,9 @@
     <% @order_details.each do |order_detail|%>
       <tr>
         <td><%= order_detail.product.name %></td>
-        <td><%= order_detail.product.tax_included_price %></td>
+        <td>&yen<%= order_detail.product.tax_included_price.to_s(:delimited) %></td>
         <td><%= order_detail.quantity %></td>
-        <td><%= order_detail.subtotal_price.to_s(:delimited) %></td>
+        <td>&yen<%= order_detail.subtotal_price.to_s(:delimited) %></td>
       </tr>
     <% end %>
   </tbody>
