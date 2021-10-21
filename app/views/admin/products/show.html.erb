@@ -21,7 +21,7 @@
 </div>
 <div class="">
   <span class="product_label">販売ステータス</span>
-  <span class="product_field"><%= @product.sale_status_i18n %></span>
+  <span class="product_field <%= @product.sale_status %>"><%= @product.sale_status_i18n %></span>
 </div>
 
 <%= link_to "編集する", edit_admin_product_path, class:"btn btn-success" %>

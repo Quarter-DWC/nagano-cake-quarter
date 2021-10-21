@@ -1,0 +1,28 @@
+.admin_footer {
+  width: 100%;
+  height: 130px;
+  padding: 0 30px;
+  position: absolute;
+  bottom: 0;
+
+  & a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  &__ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__li {
+    list-style: none;
+    margin-right: 20px;
+    font-size: 0.875rem;
+  }
+
+  &__copyright {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
