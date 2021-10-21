@@ -4,7 +4,8 @@
     <title>NaganoCakeQuarter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -16,13 +17,17 @@
       <%= render "layouts/main" %>
       <%= render "layouts/admin/footer" %>
     <% elsif customer_signed_in? %>
-      <%= render "layouts/customer/header" %>
-      <%= render "layouts/main" %>
-      <%= render "layouts/customer/footer" %>
+      <section class="customer_section">
+        <%= render "layouts/customer/header" %>
+        <%= render "layouts/main" %>
+        <%= render "layouts/customer/footer" %>
+      </section>
     <% else %>
-      <%= render "layouts/header" %>
-      <%= render "layouts/main" %>
-      <%= render "layouts/footer" %>
+      <section class="customer_section">
+        <%= render "layouts/header" %>
+        <%= render "layouts/main" %>
+        <%= render "layouts/footer" %>
+      </section>
     <% end %>
 
   </body>

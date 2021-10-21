@@ -33,3 +33,55 @@ a:hover {
   font-weight: bold;
   background-color: gray;
 }
+
+.customer_section {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  background-image: url("/assets/bg-container.png");
+  background-position: center;
+  background-repeat: repeat;
+  color: #64340B;
+  letter-spacing: 0.2em;
+  line-height: 2;
+}
+
+.title {
+  text-align: center;
+  padding-bottom: 34px;
+  background-image: url(/assets/line-title.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 255px 41px;
+  font-size: 4.2rem;
+  font-family: 'Pinyon Script', cursive;
+  margin: 0;
+}
+
+.sub-title {
+  font-size: 1rem;
+  margin-bottom: 3rem;
+  font-family: "Hannari", serif;
+  font-weight: 600;
+  text-align: center;
+
+  &::before {
+    content: '';
+    margin: 0 10px;
+    width: 6px;
+    height: 1px;
+    background-color: #64340B;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &::after {
+    content: '';
+    margin: 0 10px;
+    width: 6px;
+    height: 1px;
+    background-color: #64340B;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
