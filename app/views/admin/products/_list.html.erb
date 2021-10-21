@@ -13,7 +13,7 @@
       <tr>
         <td><%= product.id %></td>
         <td><%= link_to product.name, admin_product_path(product) %></td>
-        <td><%= product.price.to_s(:delimited) %></td>
+        <td>&yen<%= product.price.to_s(:delimited) %></td>
         <td><%= product.genre.name %></td>
         <td class="<%= product.sale_status %>">
           <%= product.sale_status_i18n %>
