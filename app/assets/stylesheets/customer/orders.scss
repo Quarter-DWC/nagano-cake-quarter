@@ -40,11 +40,38 @@ table {
   th{
     background: $table;
     color: #fff;
+    padding-left: 10px;
   }
   td{
+    padding-left: 7px;
   }
 }
 
+// 注文一覧画面
+.orders {
+  th {
+    border: 1px solid $brown;
+  }
+  td {
+    border: 1px solid $brown;
+  }
+  &__others {
+    width: 10%;
+    text-align: center;
+  }
+  &__address {
+    text-align: left;
+  }
+  &__product {
+    width: 15%;
+    text-align: center;
+  }
+  &__btn {
+    @include brown-btn;
+  }
+}
+
+// 注文完了画面
 .thank_box {
   text-align: center;
   height: 450px;
