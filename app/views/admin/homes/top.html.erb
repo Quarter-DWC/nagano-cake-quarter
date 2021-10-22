@@ -13,7 +13,7 @@
       <tr>
         <td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M:%S"), admin_order_path(order) %></td>
         <td>
-          <%= link_to order.address, search_admin_products_path(customer_id: customer.id, search_method: "customer") %>
+          <%= link_to order.customer.full_name, search_admin_products_path(customer_id: order.customer_id, search_method: "customer") %>
         </td>
         <td><%= order.order_details.count %></td>
         <td><%= order.order_status_i18n %></td>
