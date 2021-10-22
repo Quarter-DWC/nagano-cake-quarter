@@ -11,7 +11,7 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.id %></td>
+        <td><%= link_to customer.id, search_admin_products_path(customer_id: customer.id, search_method: "customer") %></td>
         <td>
           <%= link_to customer.full_name, admin_customer_path(customer) %>
         </td>
