@@ -15,7 +15,11 @@ Rails.application.routes.draw do
         get 'search'
       end
     end
-    resources :genres, only: [:index, :create, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update] do
+      member do
+        get '/' => 'genres#index'
+      end
+    end
   end
 
 
@@ -53,10 +57,15 @@ Rails.application.routes.draw do
     resource :customers, only: [:edit, :update] do
       collection do
         get 'mypage' => 'customers#show'
+        get '/' => 'customers#show'
         get 'unsubscribe'
         patch 'withdraw'
       end
     end
-    resources :deliveries, except: [:new, :show]
+    resources :deliveries, except: [:new, :show] do
+      member do
+        get '/' => 'deliveries#index'
+      end
+    end
   end
 end
