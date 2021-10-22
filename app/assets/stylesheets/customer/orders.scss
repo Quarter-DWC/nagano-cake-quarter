@@ -160,6 +160,53 @@ table {
   }
 }
 
+// 注文情報入力
+.entry-wrapper {
+  width: 70%;
+  margin: 0 auto;
+  .entry-box{
+    margin-bottom: 20px;
+  }
+  h4 {
+    position: relative;
+    padding: 0.25em 0;
+    &:after {
+      content: "";
+      display: block;
+      height: 4px;
+      background: -webkit-linear-gradient(to right, #923d3d, transparent);
+      background: linear-gradient(to right, #923d3d, transparent);
+    }
+  }
+  label{
+    width: 30%;
+  }
+  input {
+    margin: 8px;
+  }
+  .form-group {
+    display: flex;
+    .address-form{
+      width: 65%;
+      label {
+        width: 15%;
+      }
+      input {
+        width: 80%;
+      }
+    }
+  }
+  .action {
+    text-align: center;
+    input {
+      background: $brown;
+      color: #fff;
+    }
+  }
+}
+
+
+
 // 注文完了画面
 .thank_box {
   text-align: center;
