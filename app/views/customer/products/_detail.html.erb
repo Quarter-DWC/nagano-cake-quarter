@@ -1,0 +1,22 @@
+<div class="product_detail">
+  <div class="product_image">
+    <%= attachment_image_tag(product, :image, :fill, 300, 300, fallback: "cake-dummy.jpg", size:'300x300') %>
+  </div>
+  <div class="product_caption">
+    <p class="product_name"><%= product.name %></p>
+    <p class="product_intro"><%= product.introduction %></p>
+    <p class="product_price">
+      &yen<%= product.tax_included_price.to_s(:delimited) %>
+      <small>(税込)</small>
+    </p>
+  </div>
+  <% if customer_signed_in? %>
+    <%= form_with model: cart, method: :post, local: true do |f| %>
+      <%= f.hidden_field :product_id, value: product.id %>
+      <%= f.select :quantity, options_for_select(1..10),{ include_blank: '個数選択'} %>
+      <%= f.submit "カートに入れる", class: "form-control btn btn-sm btn-success" %>
+    <% end %>
+  <% else %>
+    <p>ご購入には、会員登録が必要になります。</p>
+  <%end%>
+</div>

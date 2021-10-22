@@ -1,0 +1,24 @@
+<header class="header">
+  <div class="header__inner">
+    <a href="/", class="site_link">
+      <h1 class="site_title">ながのCAKE</h1>
+    </a>
+    <nav class="header__nav">
+      <ul class="header__ul">
+        <li class="header__li">
+          <%= link_to "About", about_path %>
+        </li>
+        <li class="header__li">
+          <%= link_to "商品一覧", products_path %>
+        </li>
+        <li class="header__li">
+          <%= link_to "新規登録", new_customer_registration_path %>
+        </li>
+        <li class="header__li">
+          <%= link_to "ログイン", new_customer_session_path %>
+        </li>
+      </ul>
+      <%= render 'layouts/search_form' %>
+    </nav>
+  </div>
+</header>
