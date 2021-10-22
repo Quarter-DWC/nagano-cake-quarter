@@ -2,6 +2,10 @@
 <div class="new_delivery_form">
   <%= render 'form', delivery: @delivery %>
 </div>
-<div class="delivery_list">
-  <%= render 'delivery_index', deliveries: @deliveries %>
-</div>
+<% unless @deliveries.blank? %>
+  <div class="delivery_list">
+    <%= render 'delivery_index', deliveries: @deliveries %>
+  </div>
+<% else %>
+  <p>配送先は登録されていません。</p>
+<% end %>

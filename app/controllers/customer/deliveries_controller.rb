@@ -3,7 +3,7 @@ class Customer::DeliveriesController < ApplicationController
   before_action :setup_delivery!, except:[:index, :create]
 
   def index
-    @deliveries = Delivery.includes(:customer)
+    @deliveries = current_customer.deliveries
     @delivery = Delivery.new
   end
 
@@ -13,7 +13,7 @@ class Customer::DeliveriesController < ApplicationController
     if @delivery.save
       redirect_to deliveries_path
     else
-      @deliveries = Delivery.includes(:customer)
+      @deliveries = current_customer.deliveries
       render 'index'
     end
   end
