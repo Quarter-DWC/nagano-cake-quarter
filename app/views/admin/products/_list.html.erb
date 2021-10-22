@@ -1,11 +1,11 @@
 <% unless products.blank? %>
   <% case @method
        when "keyword" %>
-      <%= render "product", products: @result %>
+          <%= render "product", products: @result %>
     <% when "customer" %>
-      <%= render "order", products: @result %>
+          <%= render "order", products: @result %>
     <% else %>
-      <%= render 'product', products: @products %>
+          <%= render 'product', products: @products %>
   <% end %>
 
 <% else %>

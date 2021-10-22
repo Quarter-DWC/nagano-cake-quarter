@@ -37,13 +37,14 @@ class Admin::ProductsController < ApplicationController
 
   def search
     @method = params[:search_method]
-    if @method == "keyword"
-      @content = params[:content]
-      @result = Product.where('name LIKE ?', '%'+@content+'%').page(params[:page]).per(10)
-    elsif @method == "customer"
-      @customer_id = params[:customer_id]
-      @customer_name = Customer.find(@customer_id).full_name
-      @result = Order.where(customer_id: @customer_id).page(params[:page]).per(10).reverse_order
+    case @method
+      when "keyword"
+        @content = params[:content]
+        @result = Product.where('name LIKE ?', '%'+@content+'%').page(params[:page]).per(10)
+      when "customer"
+        @customer_id = params[:customer_id]
+        @customer_name = Customer.find(@customer_id).full_name
+        @result = Order.where(customer_id: @customer_id).page(params[:page]).per(10).reverse_order
     end
     
     @orders = Order.includes(:customer_id)
