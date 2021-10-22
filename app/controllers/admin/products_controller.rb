@@ -46,8 +46,8 @@ class Admin::ProductsController < ApplicationController
         @customer_name = Customer.find(@customer_id).full_name
         @result = Order.where(customer_id: @customer_id).page(params[:page]).per(10).reverse_order
     end
-    
-    @orders = Order.includes(:customer_id)
+
+    @customers = Customer.includes(:products)
   end
 
   private
