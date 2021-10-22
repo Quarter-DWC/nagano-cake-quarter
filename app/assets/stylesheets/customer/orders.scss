@@ -4,6 +4,7 @@
 
 $brown: #64340B;
 $table: #9c1e1e8f;
+$border: 1px solid #64340B;
 
 @mixin brown-btn {
   display: inline-block;
@@ -70,6 +71,55 @@ table {
     @include brown-btn;
   }
 }
+
+// 注文履歴詳細
+.order {
+  width: 80%;
+  margin: 0 10% 30px 10%;
+  th {
+    text-align: center;
+    border: $border;
+    width: 20%;
+  }
+  td {
+    text-align: left;
+    border: $border;
+  }
+}
+
+.order-wrapper {
+  display: flex;
+  width: 80%;
+  margin: 0 10%;
+  position: relative;
+	height: 200px;
+  th {
+    text-align: center;
+    border: $border;
+  }
+  td {
+    text-align: right;
+    border: $border;
+  }
+  .product{
+    width: 65%;
+    position: absolute;
+	  left: 0;
+    &_wide {
+      width: 30%;
+      text-align: left;
+    }
+    &_others{
+      width: 10%;
+    }
+  }
+  .detail {
+    width: 30%;
+    position: absolute;
+	  right: 0;
+  }
+}
+
 
 // 注文完了画面
 .thank_box {
