@@ -19,7 +19,7 @@
           <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
         </li>
       </ul>
-      <%= render 'layouts/search_form' %>
+      <%= render 'layouts/search_form', content: @content %>
     </nav>
   </div>
 </header>

@@ -2,7 +2,7 @@
   <%= form_with url: search_products_path, method: :get, local: true do |f| %>
     <%= f.hidden_field :search_method, value: "keyword" %>
     <div class="input-group">
-      <%= f.text_field :content, placeholder: "Search", class: "form-control" %>
+      <%= f.text_field :content, placeholder: "Search", value: content, class: "form-control" %>
       <span class="input-group-append">
         <button type="submit" class="form-control btn btn-success">
           <i class="fas fa-search"></i>
