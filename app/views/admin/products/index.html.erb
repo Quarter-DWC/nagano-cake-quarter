@@ -1,7 +1,9 @@
-<h3>商品一覧</h3>
-<div class="text-right">
-  <%= link_to new_admin_product_path do %>
-    <i class="fas fa-plus-circle fa-3x fa-spin"></i>
-  <% end %>
+<div class="d-flex flex-row justify-content-between">
+  <h3>商品一覧</h3>
+  <div class="text-right">
+    <%= link_to new_admin_product_path, class:"new_link" do %>
+      <i class="fas fa-plus-circle fa-3x"></i>
+    <% end %>
+  </div>
 </div>
 <%= render 'list', products: @products %>

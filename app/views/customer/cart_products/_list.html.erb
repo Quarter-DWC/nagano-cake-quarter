@@ -22,11 +22,11 @@
                 <%= cart.product.name %>
               </div>
             </td>
-            <td class="cell_price" ><%= cart.product.tax_included_price %></td>
+            <td class="cell_price" >&yen<%= cart.product.tax_included_price.to_s(:delimited) %></td>
             <td class="cell_quantity_change">
               <%= render 'quantity_change', cart: cart %>
             </td>
-            <td class="cell_subtotal"><%= cart.subtotal_price.to_s(:delimited) %></td>
+            <td class="cell_subtotal">&yen<%= cart.subtotal_price.to_s(:delimited) %></td>
             <td><%= render 'delete_form', cart: cart %></td>
           </tr>
         <% end %>

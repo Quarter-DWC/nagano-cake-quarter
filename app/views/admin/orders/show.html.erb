@@ -5,7 +5,7 @@
       <tr>
         <th>購入者</th>
         <td>
-          <%= link_to admin_customer_path(@order.customer.id), class: "text-dark" do %>
+          <%= link_to admin_customer_path(@order.customer.id) do %>
             <%= @order.customer.last_name %><%= @order.customer.first_name %>
           <% end %>
         </td>
@@ -36,7 +36,7 @@
 </div>
 <div class="row">
   <div class="col-md-8">
-    <table class="table table-inverse">
+    <table class="table table-hover table-inverse">
       <thead>
         <tr class="table-active">
           <th>商品名</th>
@@ -50,9 +50,9 @@
         <% @order_details.each do |order_detail| %>
           <tr>
             <td><%= order_detail.product.name %></td>
-            <td><%= order_detail.product.price.to_s(:delimited) %></td>
+            <td>&yen<%= order_detail.product.tax_included_price.to_s(:delimited) %></td>
             <td><%= order_detail.quantity %></td>
-            <td><%= (order_detail.product.price * order_detail.quantity).to_s(:delimited) %></td>
+            <td>&yen<%= (order_detail.subtotal_price).to_s(:delimited) %></td>
             <td>
               <%= form_with url: admin_order_detail_path(order_detail), model:order_detail, method: :patch, local:true do |s| %>
                 <%= s.select :make_status, OrderDetail.make_statuses_i18n.invert, {}, {class: "mr-5",required: true} %>
@@ -64,19 +64,19 @@
       </tbody>
     </table>
   </div>
-  <div class="col-md-3 offset-md-1 position-relative">
-    <table class="table table-borderless position-absolute bottom-0">
+  <div class="col-md-3 offset-md-1 total_price_area">
+    <table class="table table-borderless">
       <tr>
         <th>商品合計</th>
-        <td><%= (@order.total_price - @order.fee).to_s(:delimited) %>円</td>
+        <td>&yen<%= (@order.total_price - @order.fee).to_s(:delimited) %></td>
       </tr>
       <tr>
         <th>送料</th>
-        <td><%= @order.fee %>円</td>
+        <td>&yen<%= @order.fee %></td>
       </tr>
       <tr>
         <th>請求金額合計</th>
-        <td><%= @order.total_price %>円</td>
+        <td>&yen<%= @order.total_price.to_s(:delimited) %></td>
       </tr>
     </table>
   </div>
