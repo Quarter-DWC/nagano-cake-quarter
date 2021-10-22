@@ -42,20 +42,16 @@ table {
     background: $table;
     color: #fff;
     padding-left: 10px;
+    border: 1px solid $brown;
   }
   td{
     padding-left: 7px;
+    border: 1px solid $brown;
   }
 }
 
 // 注文一覧画面
 .orders {
-  th {
-    border: 1px solid $brown;
-  }
-  td {
-    border: 1px solid $brown;
-  }
   &__others {
     width: 10%;
     text-align: center;
@@ -78,12 +74,10 @@ table {
   margin: 0 10% 30px 10%;
   th {
     text-align: center;
-    border: $border;
     width: 20%;
   }
   td {
     text-align: left;
-    border: $border;
   }
 }
 
@@ -95,11 +89,9 @@ table {
 	height: 200px;
   th {
     text-align: center;
-    border: $border;
   }
   td {
     text-align: right;
-    border: $border;
   }
   .product{
     width: 65%;
@@ -120,6 +112,52 @@ table {
   }
 }
 
+// 注文確認画面
+.confirm-top {
+  display: flex;
+  margin-bottom: 30px;
+  .detail{
+    width: 70%;
+    margin-right: 10px;
+    img {
+      width: 15%;
+      height: auto;
+      margin: 5px;
+    }
+    th {
+      text-align: center;
+    }
+    &_others {
+      text-align: right;
+      width: 15%;
+    }
+  }
+  .total{
+    align-self: flex-end;
+    width: 25%;
+    th {
+      text-align: center;
+    }
+    td {
+      text-align: right;
+    }
+  }
+}
+
+.confirm-bottom {
+  margin-top: 20px;
+  display: flex;
+  h4 {
+    margin-right: 20px;
+  }
+}
+
+.hidden-group {
+  text-align: center;
+  &_btn {
+    @include skelton-btn
+  }
+}
 
 // 注文完了画面
 .thank_box {
