@@ -1,9 +1,15 @@
 <% unless products.blank? %>
-  <% if @method == "keyword" %>
-    <%= render "product", products: @result %>
-  <% elsif @method == "customer" %>
-    <%= render "order", products: @result %>
+  <% case @method
+       when "keyword" %>
+      <%= render "product", products: @result %>
+    <% when "customer" %>
+      <%= render "order", products: @result %>
+    <% else %>
+      <%= render 'product', products: @products %>
   <% end %>
+
 <% else %>
   <p>該当項目が見つかりませんでした。</p>
 <% end %>
+
+
