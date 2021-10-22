@@ -18,8 +18,8 @@ a {
 }
 
 a:hover {
-  opacity: .7;
-  transition: .3s;
+  color: #64340B;
+  text-decoration: none;
 }
 
 .container {
@@ -38,12 +38,15 @@ a:hover {
   font-family: 'Noto Serif JP', serif;
   font-size: 0.9375rem;
   font-weight: 600;
-  background-image: url("/assets/bg-container.png");
+  background-image: url(/assets/bg-container.png);
   background-position: center;
   background-repeat: repeat;
   color: #64340B;
   letter-spacing: 0.2em;
   line-height: 2;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .title {

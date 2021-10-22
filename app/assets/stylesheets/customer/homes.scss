@@ -1,3 +1,126 @@
 // Place all the styles related to the customer/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.hero {
+  background: url(/assets/line-new-top.svg) no-repeat top, url(/assets/line-new-bottom.svg) no-repeat bottom;
+  background-size: 100% 50px;
+  padding: 80px 0;
+}
+
+.swiper-slide {
+  height: 370px;
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+  background: #fff;
+  box-shadow: 0 8px 40px -10px rgba(0, 0, 0, 0.8);
+
+  & .image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(1.3);
+    transition: transform 1.9s ease;
+  }
+  
+  &-active {
+    & .image {
+      transform: none;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: -75%;
+    z-index: 2;
+    display: block;
+    content: '';
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+    transform: skewX(-25deg);
+  }
+  &:hover {
+   &::before {
+     animation: shine .75s;
+   }   
+  }
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+.detail_badge {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: #fff;
+  padding: 2px 10px;
+  border-radius: 10px;
+  color: #64340B;
+}
+
+.welcome_message {
+  width: 470px;
+  height: 316px;
+  margin: 50px auto;
+  background-image: url(/assets/bg-welcome-message.png);
+  background-repeat: no-repeat;
+}
+
+.container {
+  padding: 0;
+  max-width: 100%;
+  width: 1500px;
+  margin: 0;
+}
+
+.about {
+  &__wrapper {
+    min-height: 1140px;
+    text-align: center;
+    background-image: url(/assets/bg-logo-about.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color:rgba(255,255,255,0.8);
+    background-blend-mode:lighten;
+  }
+  &__title{
+    font-size: 86px;
+  }
+}
+
+.products_index_link {
+  display: block;
+  color: #64340B;
+  text-decoration: none;
+  font-size: 28px;
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+  text-decoration: none;
+    
+  &::after {
+    position: absolute;
+    bottom: 6px;
+    left: 0px;
+    content: "";
+    width: 100%;
+    height: 2px;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    background: #64340B;
+    transition: transform 0.3s;
+  }
+  
+  &:hover {
+    color: #64340B;
+    &::after {
+      transform: scale(1, 1);
+    }
+  }
+}

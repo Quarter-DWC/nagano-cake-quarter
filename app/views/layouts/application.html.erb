@@ -4,6 +4,10 @@
     <title>NaganoCakeQuarter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
     <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,7 +16,7 @@
 
   <body>
 
-    <% if admin_signed_in? %>
+    <% if request.fullpath.include?("/admin") %>
       <%= render "layouts/admin/header" %>
       <%= render "layouts/main" %>
       <%= render "layouts/admin/footer" %>
@@ -29,6 +33,6 @@
         <%= render "layouts/footer" %>
       </section>
     <% end %>
-
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   </body>
 </html>
