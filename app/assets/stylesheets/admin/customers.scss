@@ -1,3 +1,13 @@
 // Place all the styles related to the admin/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.customer_valid {
+  color: limegreen;
+  font-weight: bold;
+}
+
+.customer_invalid {
+  color: gray;
+  font-weight: bold;
+}

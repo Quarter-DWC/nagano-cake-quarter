@@ -37,7 +37,7 @@ class Admin::ProductsController < ApplicationController
 
   def search
     @content = params[:content]
-    @result = Product.where('name LIKE ?', '%'+@content+'%').page(params[:page]).per(10).reverse_order
+    @result = Product.where('name LIKE ?', '%'+@content+'%').page(params[:page]).per(10)
   end
 
   private
