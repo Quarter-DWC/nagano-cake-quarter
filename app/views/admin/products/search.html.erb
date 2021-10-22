@@ -1,5 +1,10 @@
 <div class="product_header">
-  <h3>商品一覧</h3>
-  <p>(全<%= @result.count %>件)</p>
-  <%= render 'list', products: @result %>
+  <% if @method == "keyword" %>
+    <h3>商品一覧</h3>
+    <p>(全<%= @result.count %>件)</p>
+    <%= render 'list', products: @result %>
+  <% elsif @method == "customer" %>
+    <h3><%= @customer_name %>さんの注文一覧</h3>
+    <p>(全<%= @result.count %>件)</p>
+    <% render "list", products: @result
 </div>
