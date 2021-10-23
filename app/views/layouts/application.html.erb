@@ -18,7 +18,7 @@
 
     <% if request.fullpath.include?("/admin") %>
       <%= render "layouts/admin/header" %>
-      <%= render "layouts/main" %>
+      <%= render "layouts/admin/main" %>
       <%= render "layouts/admin/footer" %>
     <% elsif customer_signed_in? %>
       <section class="customer_section">
