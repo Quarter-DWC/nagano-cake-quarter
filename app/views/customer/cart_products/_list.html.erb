@@ -18,7 +18,7 @@
           <tr class="product_tr">
             <td>
               <div class="product_img_name">
-                <%= attachment_image_tag(cart.product, :image, :fill, 100, 100, fallback: "cake-dummy.jpg", size:'100x100' ) %>
+                <%= attachment_image_tag(cart.product, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100' ) %>
                 <%= cart.product.name %>
               </div>
             </td>

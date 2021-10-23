@@ -1,4 +1,5 @@
 <%= form_with model: delivery, local:true do |f| %>
+  <%= render "customer/shared/error_messages", resource: f.object %>
   <div class="form-group">
     <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
     <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal-code", placeholder: "0000000", class: "form-control" %>

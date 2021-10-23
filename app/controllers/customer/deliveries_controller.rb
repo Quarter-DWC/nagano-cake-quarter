@@ -14,7 +14,6 @@ class Customer::DeliveriesController < ApplicationController
       redirect_to deliveries_path
     else
       @deliveries = current_customer.deliveries
-      flash[:alert] = "配送先の登録に失敗しました。"
       render 'index' 
     end
   end
@@ -26,7 +25,6 @@ class Customer::DeliveriesController < ApplicationController
     if @delivery.update(delivery_params)
       redirect_to deliveries_path
     else
-      flash[:alert] = "配送先の編集に失敗しました。"
       render 'edit'
     end
   end

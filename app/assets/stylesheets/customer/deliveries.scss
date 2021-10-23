@@ -56,15 +56,18 @@ $border: 1px solid #64340B;
 
 .delivery_table {
   width: 100%;
-  th{
+  & th{
     background: $table;
     color: #fff;
     padding-left: 10px;
     border: 1px solid $brown;
   }
-  td{
+  & td{
     padding: 7px 0 7px 7px;
     border: 1px solid $brown;
+  }
+  & td:last-child {
+    width: 26%;
   }
 }
 

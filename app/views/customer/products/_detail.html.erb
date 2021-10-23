@@ -1,6 +1,6 @@
 <div class="product_detail">
   <div class="product_image">
-    <%= attachment_image_tag(product, :image, :fill, 300, 300, fallback: "cake-dummy.jpg", size:'300x300') %>
+    <%= attachment_image_tag(product, :image, :fill, 300, 300, fallback: "no_image.jpg", size:'300x300') %>
   </div>
   <div class="product_caption">
     <p class="product_caption__name"><%= product.name %></p>

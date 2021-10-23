@@ -13,7 +13,7 @@
         <td><%= to.postal_code %></td>
         <td><%= to.address %></td>
         <td><%= to.address_name %></td>
-        <td colspan="2">
+        <td colspan="2" class="">
           <%= link_to "編集する", edit_delivery_path(to.id), class: "delivery_btn"  %>
           <%= link_to "削除する", delivery_path(to.id), method: :delete, data: { confirm: "本当に削除しますか?" }, class: "bye_btn" %>
         </td>
