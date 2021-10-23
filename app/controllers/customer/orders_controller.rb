@@ -21,13 +21,18 @@ class Customer::OrdersController < ApplicationController
           address: current_customer.address,
           address_name: current_customer.full_name)
       when "list_address" then
+        unless params[:order][:my_deliveries].present?
+          flash[:alert] = "お届け先住所が入力されていません。情報を入力してください。"
+          redirect_back(fallback_location: root_path)
+          return
+        end
         @my_delivery = current_customer.deliveries.find(params[:order][:my_deliveries])
         @order = Order.new(
           postal_code: @my_delivery.postal_code,
           address: @my_delivery.address,
           address_name: @my_delivery.address_name)
       when "new_address" then
-        unless to_address_params.blank?
+        unless params[:order][:postal_code].present? && params[:order][:address].present? && params[:order][:address_name].present?
           flash[:alert] = "お届け先住所が入力されていません。情報を入力してください。"
           redirect_back(fallback_location: root_path)
         end
@@ -79,14 +84,6 @@ class Customer::OrdersController < ApplicationController
     params.require(:order).permit(
       :payment_method,
       :total_price,
-      :postal_code,
-      :address,
-      :address_name
-      )
-  end
-
-  def to_address_params
-    params.require(:order).permit(
       :postal_code,
       :address,
       :address_name
