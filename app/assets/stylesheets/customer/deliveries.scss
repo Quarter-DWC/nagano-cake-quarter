@@ -70,8 +70,14 @@ $border: 1px solid #64340B;
 
 .delivery_btn {
   @include skelton-btn;
+  margin: 0 auto;
 }
 
 .form_btn {
   background: none;
+}
+
+.edit_delivery_form {
+  width: 400px;
+  margin: 0 auto;
 }

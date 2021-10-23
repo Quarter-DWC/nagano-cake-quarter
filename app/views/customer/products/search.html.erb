@@ -5,12 +5,13 @@
   <div class="col-md-8 offset-md-1">
     <div class="product_header">
       <% if @method == 'keyword' %>
-        <h3>商品一覧</h3>
-        <p>(全<%= @total_products %>件)</p>
+        <h3 class="title">Product</h3>
+        <p class="sub-title">商品一覧</p>
+        <p class="products_count">(全<%= @total_products %>件)</p>
         <%= render 'list', products: @result %>
       <% elsif @method == 'genre' %>
-        <h3><%= @genre_name %>一覧</h3>
-        <p>(全<%= @total_products %>件)</p>
+        <h3 class="title"><%= @genre_name %>一覧</h3>
+        <p class="products_count">(全<%= @total_products %>件)</p>
         <%= render 'list', products: @result %>
       <% end %>
     </div>
