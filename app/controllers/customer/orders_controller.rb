@@ -27,6 +27,10 @@ class Customer::OrdersController < ApplicationController
           address: @my_delivery.address,
           address_name: @my_delivery.address_name)
       when "new_address" then
+        unless to_address_params.blank?
+          flash[:alert] = "お届け先住所が入力されていません。情報を入力してください。"
+          redirect_back(fallback_location: root_path)
+        end
         @order = Order.new(
           postal_code: params[:order][:postal_code],
           address: params[:order][:address],
@@ -75,6 +79,14 @@ class Customer::OrdersController < ApplicationController
     params.require(:order).permit(
       :payment_method,
       :total_price,
+      :postal_code,
+      :address,
+      :address_name
+      )
+  end
+
+  def to_address_params
+    params.require(:order).permit(
       :postal_code,
       :address,
       :address_name
