@@ -1,0 +1,96 @@
+@mixin back-image{
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+
+// ログイン画面
+.back {
+  @include back-image
+  height: 450px;
+  background-image: url(/assets/back_cake.jpeg);
+  background-position: 0% 40%;
+  padding-left: 35px;
+  .login_wrapper {
+    background-color: #c5b4b4a6;
+    color: #fff;
+    width: 35%;
+    text-align: center;
+    border-radius: 5%;
+    .form-group {
+      text-align: center;
+      margin-left: 15px;
+    }
+    label {
+      text-align: left;
+      width: 40%;
+    }
+    input {
+      width: 50%;
+      opacity: 0.7;
+    }
+    .alert {
+      color: red;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+// 新規登録画面
+.signup-back {
+  @include back-image;
+  height: 100%;
+  background-image: url(/assets/signup.jpeg);
+  background-position: 0% 10%;
+  .signup_wrapper {
+    background-color: #7b6767c9;
+    color: #fff;
+    width: 80%;
+    margin: 15px auto;
+    text-align: center;
+    border-radius: 2%;
+    label {
+      text-align: left;
+      &:nth-child(2),&:nth-child(4) {
+        width: 7%;
+        text-align: right;
+        margin-right: 10px;
+      }
+    }
+    .name-group {
+      label {
+        &:first-child {
+          width: 17%;
+        }
+      }
+      input {
+        width: 20%;
+        margin-bottom: 16px;
+        opacity: 0.8;
+      }
+    }
+    .form-group {
+      text-align: center;
+      label {
+        &:first-child {
+          width: 25%;
+          margin-right: 10px;
+        }
+      }
+      input {
+        width: 50%;
+        opacity: 0.8;
+      }
+    }
+    .btn-group {
+      input {
+        width: 130px;
+        opacity: 0.8;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
