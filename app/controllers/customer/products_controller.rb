@@ -1,6 +1,6 @@
 class Customer::ProductsController < ApplicationController
   def index
-    @products = Product.where(sale_status: "sale").page(params[:page]).per(8).reverse_order
+    @products = Product.where(sale_status: "sale").page(params[:page]).per(9).reverse_order
     @genres = Genre.includes(:products)
     @total_products = Product.all.count
   end
