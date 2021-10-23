@@ -1,4 +1,8 @@
-<h3>配送先編集</h3>
-<div class="edit_delivery_form">
-  <%= render 'form', delivery: @delivery %>
+<div class="delivery_wrapper">
+  <h3 class="title">Delivery Edit</h3>
+  <p class="sub-title">配送先編集</p>
+  <div class="edit_delivery_form">
+    <p class="alert"><%= flash[:alert] %></p>
+    <%= render 'form', delivery: @delivery %>
+  </div>    
 </div>

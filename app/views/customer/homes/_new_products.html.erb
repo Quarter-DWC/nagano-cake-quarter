@@ -1,15 +1,14 @@
-<ul class="new_product_list">
-  <% products.each do |product| %>
-    <li class="product_item">
-      <%= link_to product_path(product.id), class:"product_item__link"  do %>
-        <div class="product_item__image">
-          <%= attachment_image_tag(product, :image, :fill, 300, 300, fallback: "cake-dummy.jpg") %>
-        </div>
-        <div class="product_item__caption">
-          <p class="product_name"><%= product.name %></p>
-          <p class="product_price">&yen<%= product.price %></p>
+<div class="hero">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <% products.each do |product| %>
+        <div class="swiper-slide">
+          <%= link_to product_path(product.id) do %>
+            <%= attachment_image_tag(product, :image, fallback: "no_image.jpg") %>
+            <span class="detail_badge"><%= product.name %> &yen<%= product.tax_included_price.to_s(:delimited)%></span>
+          <% end %>
         </div>
       <% end %>
-    </li>
-  <% end %>
-</ul>
+    </div>
+  </div>  
+</div>

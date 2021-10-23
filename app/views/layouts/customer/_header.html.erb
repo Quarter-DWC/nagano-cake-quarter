@@ -1,25 +1,52 @@
 <header class="header">
   <div class="header__inner">
-    <a href="/", class="site_link">
-      <h1 class="site_title">ながのCAKE</h1>
-    </a>
-    <p class="login_customer">ようこそ、<%= current_customer.last_name %><%= current_customer.first_name %>さん!</p>
+    <h1 class="site_logo">
+      <a href="/" class="site_link">
+        <img src="/assets/site-logo.png" alt="ながのCAKE">
+      </a>
+    </h1>    
+    <p class="login_customer">ようこそ、<%= current_customer.full_name %>さん!</p>
     <nav class="header__nav">
       <ul class="header__ul">
         <li class="header__li">
-          <%= link_to "マイページ", mypage_customers_path %>
+          <%= link_to mypage_customers_path, class: "header__link" do %>
+            <img src="/assets/user-mypage.svg" alt="マイページ" class="header__icon">
+            <br>
+            マイページ
+          <% end %>
         </li>
         <li class="header__li">
-          <%= link_to "商品一覧", products_path %>
+          <%= link_to products_path, class: "header__link" do %>
+            <img src="/assets/icon-products.svg" alt="商品一覧" class="header__icon">
+            <br>
+            商品一覧
+          <% end %>
         </li>
         <li class="header__li">
-          <%= link_to "カート", cart_products_path %>
+          <%= link_to cart_products_path, class: "header__link" do %>
+            <img src="/assets/user-cart.svg" alt="カート" class="header__icon">
+            <br>
+            カート
+          <% end %>
         </li>
         <li class="header__li">
-          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+          <%= link_to destroy_customer_session_path, method: :delete, class: "header__link" do %>
+            <img src="/assets/user-key.svg" alt="ログアウト" class="header__icon">
+            <br>
+            ログアウト
+          <% end %>
+        </li>
+        <li class="header__li">
+          <button type="button", class="search_btn  header__link">
+            <img src="/assets/icon-search.svg" alt="商品検索" class="header__icon">
+            <br>
+            商品検索
+          </button>
         </li>
       </ul>
-      <%= render 'layouts/search_form', content: @content %>
+      <div class="search_area">
+        <%= render 'layouts/search_form', content: @content %>
+      </div>
     </nav>
   </div>
 </header>

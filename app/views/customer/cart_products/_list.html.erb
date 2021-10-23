@@ -1,7 +1,7 @@
 <% unless carts.blank? %>
   <div class="cart_main_area">
     <div class="destroy_all_btn">
-      <%= link_to "カートを空にする", destroy_all_cart_products_path, method: :delete, remote: true, class: "btn btn-danger" %>
+      <%= link_to "カートを空にする", destroy_all_cart_products_path, method: :delete, remote: true, class: "bye_btn" %>
     </div>
     <table class="product_table">
       <thead>
@@ -18,7 +18,7 @@
           <tr class="product_tr">
             <td>
               <div class="product_img_name">
-                <%= attachment_image_tag(cart.product, :image, :fill, 100, 100, fallback: "cake-dummy.jpg", size:'100x100' ) %>
+                <%= attachment_image_tag(cart.product, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100' ) %>
                 <%= cart.product.name %>
               </div>
             </td>
@@ -35,7 +35,7 @@
   </div>
   <div class="total_price_area">
     <%= render 'total_price' , total_price: @carts.total_price %>
-    <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success" %>
+    <%= link_to "情報入力に進む", new_order_path, class: "cart_in_btn" %>
   </div>
 <% else %>
   <p>現在、お客様のカートに商品はありません。</p>

@@ -14,7 +14,7 @@ class Customer::DeliveriesController < ApplicationController
       redirect_to deliveries_path
     else
       @deliveries = current_customer.deliveries
-      render 'index'
+      render 'index' 
     end
   end
 
