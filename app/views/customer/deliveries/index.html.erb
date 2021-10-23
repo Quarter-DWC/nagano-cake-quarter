@@ -1,11 +1,20 @@
-<h3>配送先登録/一覧</h3>
-<div class="new_delivery_form">
-  <%= render 'form', delivery: @delivery %>
+<div class="delivery_wrapper">
+  <h3 class="title">Delivery</h3>
+  <p class="sub-title">配送先登録/一覧</p>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="new_delivery_form">
+        <%= render 'form', delivery: @delivery %>
+      </div>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <% unless @deliveries.blank? %>
+        <div class="delivery_list">
+          <%= render 'delivery_index', deliveries: @deliveries %>
+        </div>
+      <% else %>
+        <p>配送先は登録されていません。</p>
+      <% end %>
+    </div>
+  </div>  
 </div>
-<% unless @deliveries.blank? %>
-  <div class="delivery_list">
-    <%= render 'delivery_index', deliveries: @deliveries %>
-  </div>
-<% else %>
-  <p>配送先は登録されていません。</p>
-<% end %>

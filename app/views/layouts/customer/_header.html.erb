@@ -5,7 +5,7 @@
         <img src="/assets/site-logo.png" alt="ながのCAKE">
       </a>
     </h1>    
-    <p class="login_customer">ようこそ、<%= current_customer.last_name %><%= current_customer.first_name %>さん!</p>
+    <p class="login_customer">ようこそ、<%= current_customer.full_name %>さん!</p>
     <nav class="header__nav">
       <ul class="header__ul">
         <li class="header__li">
@@ -35,6 +35,13 @@
             <br>
             ログアウト
           <% end %>
+        </li>
+        <li class="header__li">
+          <button type="button", class="search_btn  header__link">
+            <img src="/assets/icon-search.svg" alt="商品検索" class="header__icon">
+            <br>
+            商品検索
+          </button>
         </li>
       </ul>
       <div class="search_area">

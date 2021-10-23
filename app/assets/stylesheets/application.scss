@@ -21,3 +21,33 @@ a:hover {
   color: #fff;
   text-decoration: none;
 }
+
+.pagination {
+  justify-content: center;
+  & a {
+    border: none;     /*枠線をなくす*/
+    color: #696969;   /*文字の色を変える*/
+  }
+  & .page-link {
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+    margin-right: 10px;
+    background: none;
+    text-align: center;
+  }
+  & .active {
+    & .page-link {
+      border-radius: 50%;
+      background-color: #000;
+    }
+  }
+
+  & :hover {
+
+    & .page-link {
+      border-radius: 50%;
+      background-color: #000;
+      color: #fff;
+    }
+  }
+}

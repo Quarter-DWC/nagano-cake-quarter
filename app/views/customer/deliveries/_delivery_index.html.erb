@@ -4,9 +4,7 @@
       <th>郵便番号</th>
       <th>住所</th>
       <th>宛名</th>
-      <th></th>
-      <th></th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
   <tbody>
@@ -15,8 +13,10 @@
         <td><%= to.postal_code %></td>
         <td><%= to.address %></td>
         <td><%= to.address_name %></td>
-        <td><%= link_to "編集する", edit_delivery_path(to.id), class: "btn btn-sm btn-success"  %></td>
-        <td><%= link_to "削除する", delivery_path(to.id), method: :delete, data: { confirm: "本当に削除しますか?" }, class: "btn btn-sm btn-danger" %></td>
+        <td colspan="2">
+          <%= link_to "編集する", edit_delivery_path(to.id), class: "delivery_btn"  %>
+          <%= link_to "削除する", delivery_path(to.id), method: :delete, data: { confirm: "本当に削除しますか?" }, class: "bye_btn" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
