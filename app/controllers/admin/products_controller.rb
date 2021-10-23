@@ -36,8 +36,18 @@ class Admin::ProductsController < ApplicationController
   end
 
   def search
-    @content = params[:content]
-    @result = Product.where('name LIKE ?', '%'+@content+'%').page(params[:page]).per(10)
+    @method = params[:search_method]
+    case @method
+      when "keyword"
+        @content = params[:content]
+        @result = Product.where('name LIKE ?', '%'+@content+'%').page(params[:page]).per(10)
+      when "customer"
+        @customer_id = params[:customer_id]
+        @customer_name = Customer.find(@customer_id).full_name
+        @result = Order.where(customer_id: @customer_id).page(params[:page]).per(10).reverse_order
+    end
+
+    @customers = Customer.includes(:products)
   end
 
   private
