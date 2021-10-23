@@ -1,4 +1,5 @@
 <h3>管理者ログイン</h3>
+<div class="bg-light text-danger"><%= alert %></div>
 <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
   <div class="form-group pt-3 text-center row">
     <%= f.label :email, "メールアドレス", class: 'col-md-3 col-form-label' %>

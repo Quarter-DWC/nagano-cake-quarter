@@ -16,13 +16,11 @@
           <%= link_to customer.full_name, admin_customer_path(customer) %>
         </td>
         <td><%= customer.email %></td>
-        <td>
-          <% if customer.is_valid %>
-            <p class="customer_valid">有効</p>
-          <% else %>
-            <p class="customer_invalid">退会</p>
-          <% end %>
-        </td>
+        <% if customer.is_valid %>
+          <td class="customer_valid">有効</td>
+        <% else %>
+          <td class="customer_invalid">退会</p>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
