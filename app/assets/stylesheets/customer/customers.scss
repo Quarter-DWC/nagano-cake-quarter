@@ -60,6 +60,15 @@ table {
   }
 }
 
+// テキストの背景
+.background-box {
+  background: #fffffff0;
+  width: 76%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 30px;
+}
+
 // マイページ
 .mypage {
   width: 70%;
@@ -75,6 +84,11 @@ table {
       display: inline-block;
       position: absolute;
 	    left: 10px;
+    }
+    &__edit-btn {
+      @include brown-btn;
+      position: absolute;
+	    right: 10px;
     }
     &__btn{
       @include skelton-btn;

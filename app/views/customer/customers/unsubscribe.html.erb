@@ -1,13 +1,14 @@
-
-<div class="unsubscribe">
-  <h3><strong>本当に退会しますか？</strong></h3>
-  <p>
-    退会すると、会員登録情報や<br>
-    これまでの購入記録が閲覧できなくなります。<br>
-    退会する場合は、「退会する」をクリックしてください。<br>
-  </p>
-  <div class="unsubscribe__btn">
-    <%= link_to "退会しない", mypage_customers_path, class:"unsubscribe__btn_continue" %>
-    <%= link_to "退会する", withdraw_customers_path, method: :patch, class:"unsubscribe__btn_bye" %>
+<div class="background-box">
+  <div class="unsubscribe">
+    <h3><strong>本当に退会しますか？</strong></h3>
+    <p>
+      退会すると、会員登録情報や<br>
+      これまでの購入記録が閲覧できなくなります。<br>
+      退会する場合は、「退会する」をクリックしてください。<br>
+    </p>
+    <div class="unsubscribe__btn">
+      <%= link_to "退会しない", mypage_customers_path, class:"unsubscribe__btn_continue" %>
+      <%= link_to "退会する", withdraw_customers_path, method: :patch, class:"unsubscribe__btn_bye" %>
+    </div>
   </div>
 </div>
