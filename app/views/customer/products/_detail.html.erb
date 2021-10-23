@@ -14,7 +14,7 @@
         <%= form_with model: cart, method: :post, local: true do |f| %>
           <%= f.hidden_field :product_id, value: product.id %>
           <%= f.select :quantity, options_for_select(1..10),{ include_blank: '個数選択'} %>
-          <%= f.submit "カートに入れる", class: "btn_cart form_btn" %>
+          <%= f.submit "カートに入れる", class: "btn_cart" %>
         <% end %>
       <% else %>
         <p class="product_caption__notlogin">※ご購入には、会員登録が必要になります。</p>
