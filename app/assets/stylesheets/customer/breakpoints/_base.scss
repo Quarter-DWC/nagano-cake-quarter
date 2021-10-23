@@ -1,3 +1,8 @@
+//エラーによるレイアウト崩壊防止
+.field_with_errors {
+  display: contents;
+}
+
 body {
   font-size: 1rem;
   letter-spacing: 0.125em;
