@@ -43,8 +43,9 @@
           </button>
         </li>
       </ul>
-      <div class="search_area">
+      <div id="search_area">
         <%= render 'layouts/search_form', content: @content %>
+        <%= render 'layouts/genre_search', genres: @genres %>
       </div>
     </nav>
   </div>
