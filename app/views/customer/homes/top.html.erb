@@ -1,9 +1,16 @@
-<div class="welcome_message"></div>
-<div class="new_product_wrapper">
-  <h3 class="title">New Products</h3>
-  <p class="sub-title">新着商品</p>
-  <%= render 'new_products', products: @products %>
-  <div class="products_index_btn">
-    <%= link_to "全ての商品を見る＞", products_path, class: "products_index_link" %>
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'genre_search', genres: @genres %>
+  </div>
+  <div class="col-md-8 offset-md-1">
+    <div class="welcome_message"></div>
+    <div class="new_product_wrapper">
+      <h3 class="title">New Products</h3>
+      <p class="sub-title">新着商品</p>
+      <%= render 'new_products', products: @products %>
+    </div>
+    <div class="products_index_link">
+      <%= link_to "全ての商品を見る＞", products_path, class: "products_index_btn" %>
+    </div>
   </div>
 </div>
