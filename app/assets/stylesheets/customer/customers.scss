@@ -61,12 +61,13 @@ table {
 }
 
 // テキストの背景
-.background-box {
+.customers-background {
   background: #fffffff0;
   width: 76%;
   height: 100%;
   margin: 0 auto;
   padding: 30px;
+  box-shadow: 0px 0px 10px black;
 }
 
 // マイページ
@@ -148,8 +149,11 @@ table {
 //退会確認
 .unsubscribe {
   text-align: center;
-  height: 450px;
-  padding-top: 100px;
+  background: #fffffff0;
+  text-align: center;
+  margin: 9% 0;
+  padding: 25px 0;
+  box-shadow: 0px 0px 30px black;
   &__btn{
     &_continue {
       @include brown-btn;
