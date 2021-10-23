@@ -1,9 +1,7 @@
 <section id="cart_product_section">
   <h3 class="title">Shopping Cart</h3>
   <p class="sub-title">カート内商品</p>
-  <div id="cart_product_wrapper">
-    <%= render 'list', carts: @carts %>
-  </div>
+  <%= render 'list', carts: @carts %>
   <div class="continue_shop">
     <%= link_to "買い物を続ける", root_path , class: "cart_in_btn" %>
   </div>
