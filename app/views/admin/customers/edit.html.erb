@@ -1,6 +1,8 @@
 <h3><%= @customer.full_name %>さんの会員情報編集</h3>
 <%= form_with model: @customer, url: admin_customer_path, method: :patch, local: true do |f| %>
 
+  <div class="bg-light text-danger"><%= render "admin/shared/error_messages", resource: f.object %></div>
+
   <div class="form-group pt-3 text-center row">
     <%= f.label '会員ID', class: 'col-md-3 col-form-label' %>
     <%= f.label "#{@customer.id}", class: 'mr-1 col-form-label' %>

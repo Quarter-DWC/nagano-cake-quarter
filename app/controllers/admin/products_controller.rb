@@ -1,6 +1,6 @@
 class Admin::ProductsController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_genres_and_sale_statuses!, only: [:new, :edit, :update]
+  before_action :set_genres_and_sale_statuses!, only: [:new, :create, :edit, :update]
   before_action :set_product!, only: [:show, :edit, :update]
 
   def new
@@ -12,8 +12,7 @@ class Admin::ProductsController < ApplicationController
     if @product.save
       redirect_to admin_product_path(@product), notice: "You have created product successfully."
     else
-      @products = Product.page(params[:page]).per(10)
-      render 'index'
+      render 'new'
     end
   end
 
