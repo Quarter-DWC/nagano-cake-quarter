@@ -22,10 +22,10 @@
 // ログイン画面
 .back {
   @include back-image
-  height: 450px;
+  height: 500px;
   background-image: url(/assets/back_cake.jpeg);
   background-position: 0% 40%;
-  padding-left: 35px;
+  padding-left: 125px;
   .login_wrapper {
     background-color: #c5b4b4a6;
     color: #fff;
@@ -61,8 +61,10 @@
   .signup_wrapper {
     background-color: #7b6767c9;
     color: #fff;
-    width: 80%;
-    margin: 15px auto;
+    width: 55%;
+    margin: 60px auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
     text-align: center;
     border-radius: 2%;
     label {

@@ -1,76 +1,78 @@
-<h3 class="title">Your Order</h3>
-<p class="sub-title">注文履歴詳細</p>
+<div class="customers-background">
+  <h3 class="title">Your Order</h3>
+  <p class="sub-title">注文履歴詳細</p>
 
-<div class="order">
-  <h4>注文情報</h4>
-  <table>
-    <tbody>
-      <tr>
-        <th>注文日</th>
-        <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
-      </tr>
-      <tr>
-        <th>配送先</th>
-        <td>
-          〒<%= @order.postal_code %><br />
-          <%= @order.address %><br />
-          <%= @order.address_name%>
-        </td>
-      </tr>
-      <tr>
-        <th>支払い方法</th>
-        <td><%= @order.payment_method_i18n %></td>
-      </tr>
-      <tr>
-        <th>ステータス</th>
-        <td><%= @order.order_status_i18n %></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="order-wrapper">
-
-  <div class="product">
-    <h4>注文内容</h4>
-    <table>
-    <thead>
-      <tr>
-        <th>商品</th>
-        <th>単価<br />（税込）</th>
-        <th>個数</th>
-        <th>小計</th>
-    </thead>
-    <tbody>
-      <% @order_details.each do |order_detail|%>
-        <tr>
-          <td class="product_wide"><%= order_detail.product.name %></td>
-          <td class="product_others">&yen<%= order_detail.product.tax_included_price.to_s(:delimited) %></td>
-          <td class="product_others"><%= order_detail.quantity %></td>
-          <td class="product_others">&yen<%= order_detail.subtotal_price.to_s(:delimited) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="detail">
-    <h4>請求情報</h4>
+  <div class="order">
+    <h4>注文情報</h4>
     <table>
       <tbody>
         <tr>
-          <th>商品合計</th>
-          <td>&yen<%= @order.uninclude_fee_price.to_s(:delimited) %></td>
+          <th>注文日</th>
+          <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
         </tr>
         <tr>
-          <th>配送料</th>
-          <td>&yen<%= @order.fee %></td>
+          <th>配送先</th>
+          <td>
+            〒<%= @order.postal_code %><br />
+            <%= @order.address %><br />
+            <%= @order.address_name%>
+          </td>
         </tr>
         <tr>
-          <th>ご請求金額</th>
-          <td>&yen<%= @order.total_price.to_s(:delimited) %></td>
+          <th>支払い方法</th>
+          <td><%= @order.payment_method_i18n %></td>
+        </tr>
+        <tr>
+          <th>ステータス</th>
+          <td><%= @order.order_status_i18n %></td>
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="order-wrapper">
+
+    <div class="product">
+      <h4>注文内容</h4>
+      <table>
+      <thead>
+        <tr>
+          <th>商品</th>
+          <th>単価<br />（税込）</th>
+          <th>個数</th>
+          <th>小計</th>
+      </thead>
+      <tbody>
+        <% @order_details.each do |order_detail|%>
+          <tr>
+            <td class="product_wide"><%= order_detail.product.name %></td>
+            <td class="product_others">&yen<%= order_detail.product.tax_included_price.to_s(:delimited) %></td>
+            <td class="product_others"><%= order_detail.quantity %></td>
+            <td class="product_others">&yen<%= order_detail.subtotal_price.to_s(:delimited) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="detail">
+      <h4>請求情報</h4>
+      <table>
+        <tbody>
+          <tr>
+            <th>商品合計</th>
+            <td>&yen<%= @order.uninclude_fee_price.to_s(:delimited) %></td>
+          </tr>
+          <tr>
+            <th>配送料</th>
+            <td>&yen<%= @order.fee %></td>
+          </tr>
+          <tr>
+            <th>ご請求金額</th>
+            <td>&yen<%= @order.total_price.to_s(:delimited) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

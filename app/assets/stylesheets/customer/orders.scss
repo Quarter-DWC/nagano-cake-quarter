@@ -60,6 +60,8 @@ table {
 
 // 注文一覧画面
 .orders {
+  width: 90%;
+  margin: 0 auto;
   &__others {
     width: 10%;
     text-align: center;
@@ -73,6 +75,9 @@ table {
   }
   &__btn {
     @include brown-btn;
+  }
+  .pagination {
+    margin-top: 40px;
   }
 }
 
@@ -124,6 +129,8 @@ table {
 .confirm-top {
   display: flex;
   margin-bottom: 30px;
+  padding: 0 100px;
+  justify-content: center;
   .detail{
     width: 70%;
     margin-right: 10px;
@@ -156,6 +163,7 @@ table {
 .confirm-bottom {
   margin-top: 20px;
   display: flex;
+  margin-left: 130px;
   h4 {
     margin-right: 20px;
   }
@@ -163,6 +171,7 @@ table {
 
 .hidden-group {
   text-align: center;
+  margin-top: 20px;
   &_btn {
     background: $brown;
     color: #fff;
@@ -214,11 +223,10 @@ table {
   }
 }
 
-
-
 // 注文完了画面
 .thank_box {
+  background: #fffffff0;
   text-align: center;
-  height: 450px;
-  padding-top: 120px;
+  margin: 10% 0;
+  padding: 20px 0;
 }
