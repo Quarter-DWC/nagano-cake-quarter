@@ -1,47 +1,49 @@
-<h3 class="title">Editing</h3>
-<p class="sub-title">会員情報編集</p>
+<div class="customers-background">
+  <h3 class="title">Editing</h3>
+  <p class="sub-title">会員情報編集</p>
 
-<div class="form_wrapper">
-  <%= form_with model: current_customer, url: customers_path, local: true do |f|%>
-  <%= render "customer/shared/error_messages", resource: f.object %>
+  <div class="form_wrapper">
+    <%= form_with model: current_customer, url: customers_path, local: true do |f|%>
+    <%= render "customer/shared/error_messages", resource: f.object %>
 
-  <ul>
-      <li>
-        <%= f.label :"名前" %>
-        <%= f.text_field :last_name, autofocus: true, autocomplete: "family-name", placeholder: "令和" %>
-        <%= f.text_field :first_name, autocomplete: "given-name", placeholder: "道子" %>
-      </li>
+    <ul>
+        <li>
+          <%= f.label :"名前" %>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "family-name", placeholder: "令和" %>
+          <%= f.text_field :first_name, autocomplete: "given-name", placeholder: "道子" %>
+        </li>
 
-      <li>
-        <%= f.label :"フリガナ" %>
-        <%= f.text_field :kana_last_name, autocomplete: "family-name", placeholder: "レイワ" %>
-        <%= f.text_field :kana_first_name, autocomplete: "given-name", placeholder: "ミチコ" %>
-      </li>
+        <li>
+          <%= f.label :"フリガナ" %>
+          <%= f.text_field :kana_last_name, autocomplete: "family-name", placeholder: "レイワ" %>
+          <%= f.text_field :kana_first_name, autocomplete: "given-name", placeholder: "ミチコ" %>
+        </li>
 
-      <li>
-        <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
-        <%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: "0000000" %>
-      </li>
+        <li>
+          <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
+          <%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: "0000000" %>
+        </li>
 
-      <li>
-        <%= f.label :address, "住所" %>
-        <%= f.text_field :address, autocomplete: "street-address", placeholder: "東京都渋谷区代々木神園町0-0" %>
-      </li>
+        <li>
+          <%= f.label :address, "住所" %>
+          <%= f.text_field :address, autocomplete: "street-address", placeholder: "東京都渋谷区代々木神園町0-0" %>
+        </li>
 
-      <li>
-        <%= f.label :phone_number, "電話番号(ハイフンなし)" %>
-        <%= f.text_field :phone_number, autocomplete: "tel", placeholder: "0000000000" %>
-      </li>
+        <li>
+          <%= f.label :phone_number, "電話番号(ハイフンなし)" %>
+          <%= f.text_field :phone_number, autocomplete: "tel", placeholder: "0000000000" %>
+        </li>
 
-      <li>
-        <%= f.label :email, "メールアドレス" %>
-        <%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com" %>
-      </li>
+        <li>
+          <%= f.label :email, "メールアドレス" %>
+          <%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com" %>
+        </li>
 
-      <div class="button">
-        <%= f.submit "編集内容を保存", class:"button_save" %>
-        <%= link_to "退会する", unsubscribe_customers_path, class:"button_bye" %>
-      </div>
-    </ul>
-  <% end %>
+        <div class="button">
+          <%= f.submit "編集内容を保存", class:"button_save" %>
+          <%= link_to "退会する", unsubscribe_customers_path, class:"button_bye" %>
+        </div>
+      </ul>
+    <% end %>
+  </div>
 </div>
