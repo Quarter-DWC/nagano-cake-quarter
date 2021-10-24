@@ -13,6 +13,6 @@
     <%= f.text_field :address_name, autocomplete: "name", placeholder: "令和道子", class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.submit delivery.persisted? ? "変更内容を保存" : "新規登録", class: "delivery_btn form_btn" %>
+    <%= f.submit delivery.persisted? ? "変更内容を保存" : "新規登録", class: "delivery_btn" %>
   </div>
 <% end %>
