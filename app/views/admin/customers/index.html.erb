@@ -1,28 +1,32 @@
 <h3>会員一覧</h3>
-<table class="table table-hover table-inverse">
-  <thead>
-    <tr class="table-active">
-      <th>会員ID</th>
-      <th>氏名</th>
-      <th>メールアドレス</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.id %></td>
-        <td>
-          <%= link_to customer.full_name, admin_customer_path(customer) %>
-        </td>
-        <td><%= customer.email %></td>
-        <% if customer.is_valid %>
-          <td class="customer_valid">有効</td>
-        <% else %>
-          <td class="customer_invalid">退会</p>
-        <% end %>
+<% unless @customers.blank? %>
+  <table class="table table-hover table-inverse">
+    <thead>
+      <tr class="table-active">
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @customers %>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.id %></td>
+          <td>
+            <%= link_to customer.full_name, admin_customer_path(customer) %>
+          </td>
+          <td><%= customer.email %></td>
+          <% if customer.is_valid %>
+            <td class="customer_valid">有効</td>
+          <% else %>
+            <td class="customer_invalid">退会</p>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @customers %>
+<% else %>
+  <p>該当項目が見つかりませんでした。</p>
+<% end %>

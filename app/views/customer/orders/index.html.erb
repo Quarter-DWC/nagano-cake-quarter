@@ -1,9 +1,8 @@
 <div class="customers-background">
-  <% unless @orders.blank? %>
-    <h3 class="title">Orders</h3>
-    <p class="sub-title">注文履歴一覧</p>
-
-    <div class="orders">
+  <h3 class="title">Orders</h3>
+  <p class="sub-title">注文履歴一覧</p>
+  <div class="orders">
+    <% unless @orders.blank? %>
       <table>
         <thead>
           <tr>
@@ -38,8 +37,8 @@
         </tbody>
       </table>
       <%= paginate @orders %>
-    </div>
-  <% else %>
-    <p>購入履歴がありません。</p>
-  <% end %>
+    <% else %>
+      <p class="text_center">購入履歴がありません。</p>
+    <% end %>
+  </div>
 </div>
