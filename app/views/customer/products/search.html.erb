@@ -2,11 +2,11 @@
   <% if @method == 'keyword' %>
     <h3 class="title">Product</h3>
     <p class="sub-title">商品一覧</p>
-    <p class="products_count">(全<%= @total_products %>件)</p>
+    <h4 class="products_count">(全<%= @total_products %>件)</h4>
     <%= render 'list', products: @result %>
   <% elsif @method == 'genre' %>
     <h3 class="title genre_title"><%= @genre_name %>一覧</h3>
-    <p class="products_count">(全<%= @total_products %>件)</p>
+    <h4 class="products_count">(全<%= @total_products %>件)</h4>
     <%= render 'list', products: @result %>
   <% end %>
 </div>
