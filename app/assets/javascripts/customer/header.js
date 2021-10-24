@@ -5,7 +5,7 @@ document.addEventListener("turbolinks:load", function() {
 class SearchActive {
   constructor() {
     this.search_btn = document.querySelector(".search_btn");
-    this.search_area = document.querySelector(".search_area");
+    this.search_area = document.querySelector("#search_area");
     this.eventType = this._getEventType();
     this._addEvent();
   }
