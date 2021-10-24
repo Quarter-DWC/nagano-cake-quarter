@@ -6,6 +6,8 @@
 
 #admin_bg {
   background-image: url(/assets/back_cake.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
   flex: 1;
 }
