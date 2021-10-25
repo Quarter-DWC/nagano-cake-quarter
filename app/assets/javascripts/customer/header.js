@@ -1,5 +1,9 @@
 document.addEventListener("turbolinks:load", function() {
-  new SearchActive();
+  if (location.pathname.match("admin")) {
+    return;
+  } else {
+    new SearchActive();
+  }
 });
 
 class SearchActive {
