@@ -1,0 +1,201 @@
+// Place all the styles related to the customer/homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin bg-pd-f0 {
+  padding: 50px 0;
+  background: #fffffff0;  
+}
+
+#top_wrapper {
+  @include bg-pd-f0;
+  
+  $brown: #64340B;
+  $table: #9c1e1e8f;
+  $border: 1px solid #64340B;
+
+  @mixin brown-btn {
+    display: inline-block;
+    background: $brown;
+    border: 1px solid $brown;
+    box-sizing: border-box;
+    padding: 0 2% 0 2%;
+    color: #fff;
+    text-decoration: none;
+    transition-duration: 0.2s;
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  
+  & .hero {
+    background: url(/assets/line-new-top.svg) no-repeat top, url(/assets/line-new-bottom.svg) no-repeat bottom;
+    background-size: 100% 50px;
+    padding: 80px 0;
+  }
+  
+  & .swiper-slide {
+    height: 370px;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 8px 40px -10px rgba(0, 0, 0, 0.8);
+  
+    & .image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transform: scale(1.3);
+      transition: transform 1.9s ease;
+    }
+    
+    &-active {
+      & .image {
+        transform: none;
+      }
+    }
+  
+    &::before {
+      position: absolute;
+      top: 0;
+      left: -75%;
+      z-index: 2;
+      display: block;
+      content: '';
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+      transform: skewX(-25deg);
+    }
+    &:hover {
+     &::before {
+       animation: shine .75s;
+     }   
+    }
+  }
+  
+  @keyframes shine {
+    100% {
+      left: 125%;
+    }
+  }
+  
+  & .detail_badge {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: #fff;
+    padding: 2px 10px;
+    border-radius: 10px;
+    color: #64340B;
+  }
+  
+  & .welcome_message {
+    width: 470px;
+    height: 316px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    background-image: url(/assets/bg-welcome-message.png);
+    background-repeat: no-repeat;
+  }
+  
+  & .genre_search_link {
+    font-size: 16px;
+  }
+  
+  & .products_index_link {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    text-align: right;
+  }
+  
+  & .products_index_btn {
+    @include brown-btn;
+    text-align: center;
+    width: 100%;
+    font-size: 28px;
+    margin-top: 50px;
+  }
+}
+
+#about__wrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  @include bg-pd-f0;
+
+  & .about {
+    
+    &__title{
+      font-size: 128px;
+    }
+    &__caption {
+      font-size: 24px;
+    }
+    &__img {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+  
+  & .store_info {
+    width: 442px;
+    background-image: url(/assets/bg-store-info.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}
+
+
+#search_area {
+  display: none;
+  opacity: 0;
+  width: 0;
+  margin-right: 0;
+  margin-left: auto;
+  border: 1px solid rgba(255,255,255,0.6);
+  background-color: rgba(255,255,255,0.6);
+
+  &.active {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+  }
+
+  & .genre_search_wrapper {
+    width: 100%;
+    margin-top: 20px;
+    color: #000;
+    & a {
+      color: #000;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+  
+  & .search_title {
+    text-align: center;
+    font-size: 20px;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  & .search_form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  } 
+}
+
+.search_btn {
+	background: none;
+	border: none;
+	outline: none;
+	appearance: none;
+}

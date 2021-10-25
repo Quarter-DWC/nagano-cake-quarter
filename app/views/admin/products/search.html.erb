@@ -1,0 +1,12 @@
+<div class="product_header">
+  <% case @method
+      when "keyword" %>
+        <h3>商品一覧</h3>
+        <p>(全<%= @result.count %>件)</p>
+        <%= render 'list', products: @result %>
+   <% when "customer" %>
+        <h3><%= @customer_name %>さんの注文一覧</h3>
+        <p>(全<%= @result.count %>件)</p>
+        <%= render "list", products: @result %>
+  <% end %>
+</div>

@@ -1,0 +1,32 @@
+<header class="admin_header">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <h1 class="site_logo">
+      <a href="/admin" class="navbar-brand">
+        <img src="/assets/site-logo.png" alt="ながのCAKE">
+      </a>
+    </h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li><%= link_to '商品一覧', admin_products_path, class: 'fas fa-cookie nav-link text-light' %></li>
+        <li><%= link_to '会員一覧', admin_customers_path, class: 'fas fa-user nav-link text-light' %></li>
+        <li><%= link_to '注文履歴一覧', admin_root_path, class: 'fas fa-hand-holding-usd nav-link text-light' %></li>
+        <li><%= link_to 'ジャンル一覧', admin_genres_path, class: 'fas fa-book-reader nav-link text-light' %></li>
+        <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-light' %></li>
+      </ul>
+    </div>
+    <%= form_with url: search_admin_products_path, method: :get, class: "form-inline", local: true do |f| %>
+      <%= f.hidden_field :search_method, value: "keyword" %>
+      <div class="input-group">
+        <%= f.text_field :content, placeholder: "Search", value: @content, class: "form-control" %>
+        <span class="input-group-append">
+          <button type="submit" class="form-control btn btn-success">
+            <i class="fas fa-search"></i>
+          </button>
+        </span>
+      </div>
+    <% end %>
+  </nav>
+</header>

@@ -1,0 +1,52 @@
+<header class="header">
+  <div class="header__inner">
+    <h1 class="site_logo">
+      <a href="/" class="site_link">
+        <img src="/assets/site-logo.png" alt="ながのCAKE">
+      </a>
+    </h1>
+    <nav class="header__nav">
+      <ul class="header__ul">
+        <li class="header__li">
+          <%= link_to about_path, class: "header__link" do %>
+            <img src="/assets/icon-about.svg" alt="About" class="header__icon">
+            <br>
+            About
+          <% end %>          
+        </li>
+        <li class="header__li">
+          <%= link_to products_path, class: "header__link" do %>
+            <img src="/assets/icon-products.svg" alt="商品一覧" class="header__icon">
+            <br>
+            商品一覧
+          <% end %> 
+        </li>
+        <li class="header__li">
+          <%= link_to new_customer_registration_path, class: "header__link" do %>
+            <img src="/assets/user-signup.svg" alt="新規登録" class="header__icon">
+            <br>
+            新規登録
+          <% end %>         
+        </li>
+        <li class="header__li">
+          <%= link_to new_customer_session_path, class: "header__link" do %>
+            <img src="/assets/user-login.svg" alt="ログイン" class="header__icon">
+            <br>
+            ログイン
+          <% end %>
+        </li>
+        <li class="header__li">
+          <button type="button", class="search_btn  header__link">
+            <img src="/assets/icon-search.svg" alt="商品検索" class="header__icon">
+            <br>
+            商品検索
+          </button>
+        </li>
+      </ul>
+      <div id="search_area">
+        <%= render 'layouts/search_form', content: @content %>
+        <%= render 'layouts/genre_search', genres: @genres %>
+      </div>
+    </nav>
+  </div>
+</header>

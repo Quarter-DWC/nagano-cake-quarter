@@ -1,0 +1,10 @@
+<div class="genre_search_wrapper">
+  <p class="search_title">ジャンル検索</p>
+  <ul class="genre_search_list">
+    <% genres.each do |genre| %>
+      <li class="genre_search_item">
+        <%= link_to genre.name, search_products_path(genre_id: genre.id, search_method: "genre"), class: "genre_search_link" %>
+      </li>
+    <% end %>
+  </ul>
+</div>

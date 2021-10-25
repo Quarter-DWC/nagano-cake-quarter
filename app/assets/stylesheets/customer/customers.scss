@@ -1,0 +1,155 @@
+// Place all the styles related to the customer/customers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$brown: #64340B;
+$table: #9c1e1e8f;
+
+@mixin brown-btn {
+  display: inline-block;
+  background: $brown;
+  border: 1px solid $brown;
+  box-sizing: border-box;
+  padding: 0 2% 0 2%;
+  color: #fff;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+@mixin skelton-btn {
+  display: inline-block;
+  border: 1px solid $brown;
+  box-sizing: border-box;
+  padding: 0 2% 0 2%;
+  color: $brown;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  &:hover {
+    background: $brown;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+@mixin bye-btn {
+  display: inline-block;
+  border: 1px solid $brown;
+  box-sizing: border-box;
+  padding: 0 2% 0 2%;
+  color: $brown;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  &:hover {
+    background: red;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+table {
+  width: 100%;
+  th{
+    background: $table;
+    color: #fff;
+  }
+  td{
+  }
+}
+
+// マイページ
+.mypage {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  .link {
+    margin-bottom: 25px;
+    width: 40%;
+    margin: 0 auto;
+    position: relative;
+  	height: 40px;
+    h4{
+      display: inline-block;
+      position: absolute;
+	    left: 10px;
+    }
+    &__edit-btn {
+      @include brown-btn;
+      position: absolute;
+	    right: 10px;
+    }
+    &__btn{
+      @include skelton-btn;
+      position: absolute;
+	    right: 10px;
+    }
+  }
+  .info {
+    margin-bottom: 25px;
+    th{
+      width: 30%;
+      height: 50px;
+      border-bottom: 1px solid $brown;
+    }
+    td{
+      text-align: left;
+      padding-left: 15px;
+      border-bottom: 1px solid $brown;
+    }
+  }
+}
+
+// 編集ページ
+.form_wrapper {
+  ul {
+    width: 80%;
+    margin: 0 auto;
+    li {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+    label {
+      text-align: left;
+      width: 200px;
+    }
+    input {
+      margin-left: 20px;
+    }
+  }
+}
+
+.button {
+  width: 50%;
+  margin: 40px auto 0 auto;
+  &_save {
+    background: $brown;
+    color: #fff;
+  }
+  &_bye {
+    @include bye-btn;
+    margin-left: 150px;
+    padding: 2px 10px;
+  }
+}
+
+
+//退会確認
+.unsubscribe {
+  text-align: center;
+  background: #fffffff0;
+  text-align: center;
+  margin: 9% 0;
+  padding: 25px 0;
+  box-shadow: 0px 0px 30px black;
+  &__btn{
+    &_continue {
+      @include brown-btn;
+    }
+    &_bye {
+      @include bye-btn;
+    }
+  }
+}

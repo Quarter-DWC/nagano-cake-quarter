@@ -1,0 +1,26 @@
+<div class="back">
+  <div class="login_wrapper">
+    <h3 class="title">Log in</h3>
+
+    <h5>会員の方はこちらからログイン</h5>
+    <p class="alert"><%= flash[:alert]%></p>
+    <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, "パスワード" %>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="form-group">
+        <p><%= f.submit "ログイン" %></p>
+      </div>
+    <% end %>
+
+    <h5>会員登録がお済みでない方</h5>
+    <p><%= render "customer/shared/links" %>から新規登録を行ってください</p>
+  </div>
+</div>

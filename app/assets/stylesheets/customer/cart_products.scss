@@ -1,0 +1,156 @@
+// Place all the styles related to the customer/cart_products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin bg-pd-f0 {
+  padding: 50px 50px;
+  background: #fffffff0;  
+}
+
+$brown: #64340B;
+$table: #9c1e1e8f;
+
+@mixin brown-btn {
+  display: inline-block;
+  background: $brown;
+  border: 1px solid $brown;
+  box-sizing: border-box;
+  padding: 0 2% 0 2%;
+  color: #fff;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+@mixin skelton-btn {
+  display: inline-block;
+  border: 1px solid $brown;
+  box-sizing: border-box;
+  padding: 0 2% 0 2%;
+  color: $brown;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  &:hover {
+    background: $brown;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+#cart_product_section {
+  @include bg-pd-f0;
+  height: 100%;
+  
+  & .form_btn {
+    background: none;
+  }
+  
+  & .bye_btn {
+    display: inline-block;
+    border: 1px solid $brown;
+    box-sizing: border-box;
+    padding: 0 2% 0 2%;
+    color: $brown;
+    text-decoration: none;
+    transition-duration: 0.2s;
+    &:hover {
+      background: red;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  
+  & .cart_in_btn {
+    @include brown-btn;
+  }
+  & .continue_shop {
+    display: flex;
+    justify-content: center;
+  }
+  
+  & #cart_product_wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 30px 0;
+    &.no_cart {
+      display: flex;
+      justify-content: center;
+      padding: 58px 50px;
+    }
+  }
+  
+    & .cart_main_area {
+    width: 77%;
+    & .destroy_all_btn {
+      width: 100%;
+      text-align: right;
+    }
+  }
+  
+  & .total_price_area {
+    width: 20%;
+    max-height: 240px;
+    margin-top: 38px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 0 8px rgba(54, 32, 32, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
+    & p {
+      font-size: 24px;    
+    }
+  }
+  
+  & .product_table {
+    width: 100%;
+    margin: 30px 0;
+    & th {
+      background-color: #9c1e1e8f;
+      color: #fff;
+      border-bottom: 1px solid #000;
+      padding-left: 10px;
+    }
+    & td {
+      vertical-align: middle;
+      margin-left: 30px;
+      padding-left: 10px;
+    }
+  }
+  
+  & .product_tr {
+    height: 100px;
+    border-bottom: 1px solid #000;
+  }
+  
+  & .product_img_name {
+    display: flex;
+    align-items: center;
+  
+    & img {
+      width: 90px;
+      height: 70px;
+      border-radius: 10px;
+      margin-right: 10px;
+    }
+  }
+  
+  & .cell_price {
+    width: 138px;
+  }
+  
+  & .cell_quantity_change {
+    width: 138px;
+    & .btn {
+      margin-left: 8px;
+    }
+  }
+  
+  & .cell_subtotal {
+    width: 138px;
+  }
+}

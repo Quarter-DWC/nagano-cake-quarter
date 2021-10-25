@@ -1,0 +1,30 @@
+// Place all the styles related to the admin/products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sale {
+  color: limegreen;
+  font-weight: bold;
+}
+
+.sold_out {
+  color: gray;
+  font-weight: bold;
+}
+
+.new_link {
+  text-decoration: none;
+  & a:hover {
+    color: #0056b3;
+  }
+}
+
+.table th {
+  color: black;
+  border: none;
+  background: none;
+}
+
+.table td {
+  border: none;
+}

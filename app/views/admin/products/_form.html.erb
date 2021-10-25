@@ -1,0 +1,40 @@
+<%= form_with model:[:admin, product], local:true do |f| %>
+
+  <div class="bg-light text-danger"><%= render "admin/shared/error_messages", resource: f.object %></div>
+
+  <div class="form-group form-group pt-3 text-center row">
+    <%= f.label :image, "商品画像", class: 'col-md-3 col-form-label' %>
+    <%= f.attachment_field :image, class: "form-control-file w-50" %>
+  </div>
+
+  <div class="form-group form-group pt-3 text-center row">
+    <%= f.label :name, "商品名", class: 'col-md-3 col-form-label' %>
+    <%= f.text_field :name, placeholder: "商品名", class: 'form-control w-25' %>
+  </div>
+  <div class="form-group form-group pt-3 text-center row">
+    <%= f.label :introduction, "商品説明", class: 'col-md-3 col-form-label' %>
+    <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: 'form-control w-25' %>
+  </div>
+  <div class="form-group form-group pt-3 text-center row">
+    <%= f.label :genre_id, "ジャンル", class: 'col-md-3 col-form-label' %>
+    <%= f.collection_select :genre_id, genres, :id, :name, :prompt => "-- 選択してください --", class: 'form-control w-25' %>
+  </div>
+  <div class="form-group form-group pt-3 text-center row">
+    <%= f.label :price, "税抜価格", class: 'col-md-3 col-form-label' %>
+    <%= f.text_field :price, placeholder: 1000, class: 'form-control w-25' %>円
+  </div>
+  <div class="form-group form-group pt-3 text-center d-flex align-items-center row">
+    <%= f.label :sale_status, "販売ステータス", class: 'col-md-3 col-form-label' %>
+
+      <% sale_statuses.each do |sale_status| %>
+        <!-- sale_status[0]が"sale"とか"sold_out"で、sale_status[1]が"販売中"とか"売切れ"-->
+        <%= f.radio_button :sale_status, sale_status[0], class: "mr-1 ml-3" %><%= sale_status[1] %>
+      <% end %>
+
+  </div>
+
+  <div class="form-group text-center pt-3">
+    <%= f.submit product.persisted? ? "変更内容を保存" : "新規登録", class: 'btn btn-success' %>
+  </div>
+
+<% end %>

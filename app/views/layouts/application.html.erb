@@ -4,12 +4,35 @@
     <title>NaganoCakeQuarter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+
+    <% if request.fullpath.include?("/admin") %>
+      <%= render "layouts/admin/header" %>
+      <%= render "layouts/admin/main" %>
+      <%= render "layouts/admin/footer" %>
+    <% elsif customer_signed_in? %>
+      <section class="customer_section">
+        <%= render "layouts/customer/header" %>
+        <%= render "layouts/main" %>
+        <%= render "layouts/customer/footer" %>
+      </section>
+    <% else %>
+      <section class="customer_section">
+        <%= render "layouts/header" %>
+        <%= render "layouts/main" %>
+        <%= render "layouts/footer" %>
+      </section>
+    <% end %>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   </body>
 </html>

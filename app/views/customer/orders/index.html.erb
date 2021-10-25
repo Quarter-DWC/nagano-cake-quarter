@@ -1,0 +1,44 @@
+<div class="customers-background">
+  <h3 class="title">Orders</h3>
+  <p class="sub-title">注文履歴一覧</p>
+  <div class="orders">
+    <% unless @orders.blank? %>
+      <table>
+        <thead>
+          <tr>
+            <th>注文日</th>
+            <th>配送先</th>
+            <th>注文商品</th>
+            <th>支払金額</th>
+            <th>ステータス</th>
+            <th>注文詳細</th>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+          <tr>
+            <td class="orders__others"><%= order.created_at.strftime("%Y/%m/%d") %></td>
+            <td class="orders__address">
+              〒<%= order.postal_code %><br />
+              <%= order.address %><br />
+              <%= order.address_name%>
+            </td>
+            <td class="orders__product">
+              <% order.order_details.each do |order_detail| %>
+                <%= order_detail.product.name %><br />
+              <% end %>
+            </td>
+            <td class="orders__others">&yen<%= order.total_price.to_s(:delimited) %></td>
+            <td class="orders__others"><%= order.order_status_i18n %></td>
+            <td class="orders__others">
+              <%= link_to "表示する", order_path(order), class:"orders__btn" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @orders %>
+    <% else %>
+      <p class="text_center">購入履歴がありません。</p>
+    <% end %>
+  </div>
+</div>

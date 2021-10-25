@@ -1,0 +1,91 @@
+// Place all the styles related to the customer/deliveries controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin bg-pd-f0 {
+  padding: 50px;
+  background: #fffffff0;  
+}
+
+$brown: #64340B;
+$table: #9c1e1e8f;
+$border: 1px solid #64340B;
+
+@mixin brown-btn {
+  display: inline-block;
+  background: $brown;
+  border: 1px solid $brown;
+  box-sizing: border-box;
+  padding: 0 2% 0 2%;
+  color: #fff;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+@mixin skelton-btn {
+  display: inline-block;
+  border: 1px solid $brown;
+  box-sizing: border-box;
+  padding: 0 2% 0 2%;
+  color: $brown;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  &:hover {
+    background: $brown;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+#delivery_wrapper {
+  @include bg-pd-f0;
+  
+  & .bye_btn {
+    display: inline-block;
+    border: 1px solid $brown;
+    box-sizing: border-box;
+    padding: 0 2% 0 2%;
+    color: $brown;
+    text-decoration: none;
+    transition-duration: 0.2s;
+    &:hover {
+      background: red;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  
+  & .delivery_wrapper {
+    margin: 50px 0;
+  }
+  
+  & .delivery_table {
+    width: 100%;
+    & th{
+      background: $table;
+      color: #fff;
+      padding-left: 10px;
+      border: 1px solid $brown;
+    }
+    & td{
+      padding: 7px 0 7px 7px;
+      border: 1px solid $brown;
+    }
+    & td:last-child {
+      width: 26%;
+    }
+  }
+  
+  & .delivery_btn {
+    @include brown-btn;
+    margin: 0 auto;
+  }
+  
+  & .edit_delivery_form {
+    width: 400px;
+    margin: 0 auto;
+  }
+}

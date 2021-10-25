@@ -1,0 +1,11 @@
+<div id="top_wrapper", class="customers-background">
+  <div class="welcome_message"></div>
+  <div class="new_product_wrapper">
+    <h3 class="title">New Arrival</h3>
+    <p class="sub-title">新着商品</p>
+    <%= render 'new_products', products: @products %>
+  </div>
+  <div class="products_index_link">
+    <%= link_to "全ての商品を見る＞", products_path, class: "products_index_btn" %>
+  </div>  
+</div>

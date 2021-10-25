@@ -1,0 +1,232 @@
+// Place all the styles related to the customer/orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//flash
+.alert {
+  color: red;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+$brown: #64340B;
+$table: #9c1e1e8f;
+$border: 1px solid #64340B;
+
+@mixin brown-btn {
+  display: inline-block;
+  background: $brown;
+  border: 1px solid $brown;
+  box-sizing: border-box;
+  padding: 0 2% 0 2%;
+  color: #fff;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+@mixin skelton-btn {
+  display: inline-block;
+  border: 1px solid $brown;
+  box-sizing: border-box;
+  padding: 0 2% 0 2%;
+  color: $brown;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  &:hover {
+    background: $brown;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+table {
+  width: 100%;
+  th{
+    background: $table;
+    color: #fff;
+    padding-left: 10px;
+    border: 1px solid $brown;
+  }
+  td{
+    padding-left: 7px;
+    border: 1px solid $brown;
+  }
+}
+
+// 注文一覧画面
+.orders {
+  width: 90%;
+  margin: 0 auto;
+  &__others {
+    width: 10%;
+    text-align: center;
+  }
+  &__address {
+    text-align: left;
+  }
+  &__product {
+    width: 15%;
+    text-align: center;
+  }
+  &__btn {
+    @include brown-btn;
+  }
+  .pagination {
+    margin-top: 40px;
+  }
+}
+
+// 注文履歴詳細
+.order {
+  width: 80%;
+  margin: 0 10% 30px 10%;
+  th {
+    text-align: center;
+    width: 20%;
+  }
+  td {
+    text-align: left;
+  }
+}
+
+.order-wrapper {
+  display: flex;
+  width: 80%;
+  margin: 0 10%;
+  position: relative;
+	height: 200px;
+  th {
+    text-align: center;
+  }
+  td {
+    text-align: right;
+  }
+  .product{
+    width: 65%;
+    position: absolute;
+	  left: 0;
+    &_wide {
+      width: 30%;
+      text-align: left;
+    }
+    &_others{
+      width: 10%;
+    }
+  }
+  .detail {
+    width: 30%;
+    position: absolute;
+	  right: 0;
+  }
+}
+
+// 注文確認画面
+.confirm-top {
+  display: flex;
+  margin-bottom: 30px;
+  padding: 0 100px;
+  justify-content: center;
+  .detail{
+    width: 70%;
+    margin-right: 10px;
+    img {
+      width: 15%;
+      height: auto;
+      margin: 5px;
+      radius: 10%;
+    }
+    th {
+      text-align: center;
+    }
+    &_others {
+      text-align: right;
+      width: 15%;
+    }
+  }
+  .total{
+    align-self: flex-end;
+    width: 25%;
+    th {
+      text-align: center;
+    }
+    td {
+      text-align: right;
+    }
+  }
+}
+
+.confirm-bottom {
+  margin-top: 20px;
+  display: flex;
+  margin-left: 130px;
+  h4 {
+    margin-right: 20px;
+  }
+}
+
+.hidden-group {
+  text-align: center;
+  margin-top: 20px;
+  &_btn {
+    background: $brown;
+    color: #fff;
+  }
+}
+
+// 注文情報入力
+.entry-wrapper {
+  width: 70%;
+  margin: 0 auto;
+  .entry-box{
+    margin-bottom: 20px;
+  }
+  h4 {
+    position: relative;
+    padding: 0.25em 0;
+    &:after {
+      content: "";
+      display: block;
+      height: 4px;
+      background: -webkit-linear-gradient(to right, #923d3d, transparent);
+      background: linear-gradient(to right, #923d3d, transparent);
+    }
+  }
+  label{
+    width: 30%;
+  }
+  input {
+    margin: 8px;
+  }
+  .form-group {
+    display: flex;
+    .address-form{
+      width: 65%;
+      label {
+        width: 15%;
+      }
+      input {
+        width: 80%;
+      }
+    }
+  }
+  .action {
+    text-align: center;
+    input {
+      background: $brown;
+      color: #fff;
+    }
+  }
+}
+
+// 注文完了画面
+.thank_box {
+  background: #fffffff0;
+  text-align: center;
+  margin: 10% 0;
+  padding: 20px 0;
+}
