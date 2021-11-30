@@ -1,4 +1,7 @@
 # ながのCAKE ECサイト
+↓動画デモをYoutubeにて限定公開しています。
+[![](https://img.youtube.com/vi/sIcvKND-uOA/0.jpg)](https://www.youtube.com/watch?v=sIcvKND-uOA)  
+
 ### [概要]
 長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト開発。
 
